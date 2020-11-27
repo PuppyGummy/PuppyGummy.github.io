@@ -1,6 +1,6 @@
 ---
 layout: post
-title: C++实现算术表达式的语法编译程序
+title: C++实现算术表达式的语法分析程序
 slug: grammar-parser-implementation
 date: 2020-11-27 20:34
 status: publish
