@@ -11,7 +11,7 @@ archives_page_size = 20
 template = "Kepler"
 enable_jsdelivr = {
     "enabled": True,
-    "repo": "PuppyGummy/@gh-pages"
+    "repo": "PuppyGummy/PuppyGummy.github.io@gh-pages"
 }
 
 # 站点设置
