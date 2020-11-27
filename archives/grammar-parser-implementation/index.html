@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/c79933658a988b6d0a9ff8fdd5dccc54.json"
+            api: "https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/2cfe2983b95ba6f07461181b956bd631.json"
         }
     </script>
     <script>
@@ -415,36 +415,32 @@
 <blockquote><p>输入：文法G的一张分析表和一个输入符号串ω</p>
 <p>输出：若ω∈L(G)，得到ω的自底向上的分析，否则报错</p>
 <p>方法：开始时，初始状态S0在栈顶，ω$在输入缓冲器中</p>
+<p>置ip指向ω$的第一个符号；</p>
+<p>repeat  forever   begin</p>
+<p>令S是栈顶状态，a是ip所指向的符号；</p>
+<p>if action[S，a]=shift S’  then  begin</p>
 
-<pre><code>置ip指向ω$的第一个符号；
+<pre><code>把a和S’依次入栈；
 
-repeat  forever   begin
+推进ip，使它指向下一个输入符号
 
-令S是栈顶状态，a是ip所指向的符号；
+end
 
-if action[S，a]=shift S’  then  begin
+</code></pre>
+<p>else if action[S，a]=reduce by A→β  then  begin</p>
 
-    把a和S’依次入栈；
+<pre><code>从栈顶弹出2*|β|个符号；
 
-    推进ip，使它指向下一个输入符号
+令S’是现在的栈顶状态，把A和goto[S’，A]入栈；
 
-    end
+输出产生式A→β
 
-else if action[S，a]=reduce by A→β  then  begin
+end
 
-    从栈顶弹出2*|β|个符号；
-
-    令S’是现在的栈顶状态，把A和goto[S’，A]入栈；
-
-    输出产生式A→β
-
-    end
-
-else if action[S，a]=accept  then  return
-
-else  error()
-
-end.</code></pre>
+</code></pre>
+<p>else if action[S，a]=accept  then  return</p>
+<p>else  error()</p>
+<p>end.</p>
 </blockquote>
 <h2>实现</h2>
 <p>在具体的实现中，我定义了两个结构体，分别用来表示产生式和action表。</p>
