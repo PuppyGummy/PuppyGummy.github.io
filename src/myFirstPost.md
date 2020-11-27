@@ -73,7 +73,7 @@ excerpt: a simple grammar parser implemented by c++
 然后，根据构造的DFA和FOLLOW集，可以填出对应的LR分析表：
 
 状态 | action | goto
---|--|--
+--|--|--|--|--|--|--|--|--|--|--|--
  | + | - | * | / | ( | ) | num | $ | E | T | F
 --|--|--|--|--|--|--|--|--|--|--|--
 0 | | | | | s4 | | s5 | | 1 | 2 | 3
