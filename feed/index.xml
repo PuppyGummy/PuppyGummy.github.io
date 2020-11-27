@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Kami的Blog</title><link>/</link><description>能吃是福</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/icon.png</url><title>Kami的Blog</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Fri, 27 Nov 2020 13:21:04 +0806</lastBuildDate><pubDate>Fri, 27 Nov 2020 13:21:04 +0806</pubDate><item><title>Hello World!</title><link>/archives/typography/</link><description>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Kami的Blog</title><link>/</link><description>能吃是福</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/icon.png</url><title>Kami的Blog</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Fri, 27 Nov 2020 13:22:59 +0806</lastBuildDate><pubDate>Fri, 27 Nov 2020 13:22:59 +0806</pubDate><item><title>Hello World!</title><link>/archives/typography/</link><description>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
 &lt;h3&gt;L3 Heading&lt;/h3&gt;
 &lt;h4&gt;L4 Heading&lt;/h4&gt;
 &lt;h5&gt;L5 Heading&lt;/h5&gt;
@@ -369,25 +369,14 @@
 &lt;p&gt;repeat  forever   begin&lt;/p&gt;
 &lt;p&gt;令S是栈顶状态，a是ip所指向的符号；&lt;/p&gt;
 &lt;p&gt;if action[S，a]=shift S’  then  begin&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;把a和S’依次入栈；
-
-推进ip，使它指向下一个输入符号
-
-end
-
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;把a和S’依次入栈；&lt;/p&gt;
+&lt;p&gt;推进ip，使它指向下一个输入符号&lt;/p&gt;
+&lt;p&gt;end&lt;/p&gt;
 &lt;p&gt;else if action[S，a]=reduce by A→β  then  begin&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;从栈顶弹出2*|β|个符号；
-
-令S’是现在的栈顶状态，把A和goto[S’，A]入栈；
-
-输出产生式A→β
-
-end
-
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;从栈顶弹出2*|β|个符号；&lt;/p&gt;
+&lt;p&gt;令S’是现在的栈顶状态，把A和goto[S’，A]入栈；&lt;/p&gt;
+&lt;p&gt;输出产生式A→β&lt;/p&gt;
+&lt;p&gt;end&lt;/p&gt;
 &lt;p&gt;else if action[S，a]=accept  then  return&lt;/p&gt;
 &lt;p&gt;else  error()&lt;/p&gt;
 &lt;p&gt;end.&lt;/p&gt;
