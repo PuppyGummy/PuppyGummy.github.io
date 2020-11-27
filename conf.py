@@ -16,24 +16,24 @@ enable_jsdelivr = {
 
 # 站点设置
 site_name = "Kami的Blog"
-site_logo = "${static_prefix}logo.png"
-site_build_date = "2019-12-18T16:51+08:00"
+site_logo = "${static_prefix}印章.png"
+site_build_date = "2020-11-27T16:42+08:00"
 author = "卡咪"
 email = "815918091@qq.com"
-author_homepage = "https://www.imalan.cn"
+author_homepage = ""
 description = "能吃是福"
-key_words = ['Maverick', '熊猫小A', 'Galileo', 'blog']
+key_words = ['K@M1', 'Blog']
 language = 'zh-CN'
 external_links = [
     {
-        "name": "Maverick",
-        "url": "https://github.com/AlanDecode/Maverick",
-        "brief": "🏄‍ Go My Own Way."
+        "name": "",
+        "url": "",
+        "brief": ""
     },
     {
-        "name": "三無計劃",
-        "url": "https://www.imalan.cn",
-        "brief": "熊猫小A的主页。"
+        "name": "",
+        "url": "",
+        "brief": ""
     }
 ]
 nav = [
