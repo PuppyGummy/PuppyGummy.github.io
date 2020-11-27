@@ -103,21 +103,21 @@ excerpt: a simple grammar parser implemented by c++
 > 
 > if action[S，a]=shift S’  then  begin
 > 
->     把a和S’依次入栈；
+>   把a和S’依次入栈；
 > 
->     推进ip，使它指向下一个输入符号
+>   推进ip，使它指向下一个输入符号
 > 
->     end
+>   end
 > 
 > else if action[S，a]=reduce by A→β  then  begin
 > 
->     从栈顶弹出2*|β|个符号；
+>   从栈顶弹出2*|β|个符号；
 > 
->     令S’是现在的栈顶状态，把A和goto[S’，A]入栈；
+>   令S’是现在的栈顶状态，把A和goto[S’，A]入栈；
 > 
->     输出产生式A→β
+>   输出产生式A→β
 > 
->     end
+>   end
 > 
 > else if action[S，a]=accept  then  return
 > 
