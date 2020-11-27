@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/874dbdc00c7652c80e74f520f7281d73.json"
+            api: "https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/31ea786a285783e4297eaf323ce79cbe.json"
         }
     </script>
     <script>
@@ -159,25 +159,254 @@
 <p>follow(T) = follow(F) = { *, /, +, -, ), $ }</p>
 </blockquote>
 <p>然后，根据构造的DFA和FOLLOW集，可以填出对应的LR分析表：</p>
-<p>状态 |           action           |   goto
--- | + | - | * | / | ( | ) | num | $ | E | T | F
---|--|--|--|--|--|--|--|--|--|--|--
-0 | | | | | s4 | | s5 | | 1 | 2 | 3
-1 | s6 | s7 | | | | | | acc | | |
-2 | r3 | r3 | s8 | s9 | | r3 | r3 | | |
-3 | r6 | r6 | r6 | r6 | | r6 | | r6 | | |
-4 | | | | | s4 | | s5 | | 10 | 2 | 3
-5 | r8 | r8 | r8 | r8 | | r8 | | r8 | | |
-6 | | | | | s4 | | s5 | | | 11 | 3
-7 | | | | | s4 | | s5 | | | 12 | 3
-8 | | | | | s4 | | s5 | | | | 13
-9 | | | | | s4 | | s5 | | | | 14
-10 | s6 | s7 |  | | | s15 | | | | |
-11 | r1 | r1 | s8 | s9 | | r1 | | r1
-12 | r2 | r2 | s8 | s9 | | r2 | | r2
-13 | r4 | r4 | r4 | r4 | | r4 | | r4
-14 | r5 | r5 | r5 | r5 | | r5 | | r5
-15 | r7 | r7 | r7 | r7 | | r7 | | r7</p>
+<table>
+<thead><tr>
+<th>--</th>
+<th>+</th>
+<th>-</th>
+<th>*</th>
+<th>/</th>
+<th>(</th>
+<th>)</th>
+<th>num</th>
+<th>$</th>
+<th>E</th>
+<th>T</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>s4</td>
+<td></td>
+<td>s5</td>
+<td></td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>1</td>
+<td>s6</td>
+<td>s7</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>acc</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>r3</td>
+<td>r3</td>
+<td>s8</td>
+<td>s9</td>
+<td></td>
+<td>r3</td>
+<td>r3</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>r6</td>
+<td>r6</td>
+<td>r6</td>
+<td>r6</td>
+<td></td>
+<td>r6</td>
+<td></td>
+<td>r6</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>s4</td>
+<td></td>
+<td>s5</td>
+<td></td>
+<td>10</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>5</td>
+<td>r8</td>
+<td>r8</td>
+<td>r8</td>
+<td>r8</td>
+<td></td>
+<td>r8</td>
+<td></td>
+<td>r8</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>s4</td>
+<td></td>
+<td>s5</td>
+<td></td>
+<td></td>
+<td>11</td>
+<td>3</td>
+</tr>
+<tr>
+<td>7</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>s4</td>
+<td></td>
+<td>s5</td>
+<td></td>
+<td></td>
+<td>12</td>
+<td>3</td>
+</tr>
+<tr>
+<td>8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>s4</td>
+<td></td>
+<td>s5</td>
+<td></td>
+<td></td>
+<td></td>
+<td>13</td>
+</tr>
+<tr>
+<td>9</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>s4</td>
+<td></td>
+<td>s5</td>
+<td></td>
+<td></td>
+<td></td>
+<td>14</td>
+</tr>
+<tr>
+<td>10</td>
+<td>s6</td>
+<td>s7</td>
+<td></td>
+<td></td>
+<td></td>
+<td>s15</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>r1</td>
+<td>r1</td>
+<td>s8</td>
+<td>s9</td>
+<td></td>
+<td>r1</td>
+<td></td>
+<td>r1</td>
+</tr>
+<tr>
+<td>12</td>
+<td>r2</td>
+<td>r2</td>
+<td>s8</td>
+<td>s9</td>
+<td></td>
+<td>r2</td>
+<td></td>
+<td>r2</td>
+</tr>
+<tr>
+<td>13</td>
+<td>r4</td>
+<td>r4</td>
+<td>r4</td>
+<td>r4</td>
+<td></td>
+<td>r4</td>
+<td></td>
+<td>r4</td>
+</tr>
+<tr>
+<td>14</td>
+<td>r5</td>
+<td>r5</td>
+<td>r5</td>
+<td>r5</td>
+<td></td>
+<td>r5</td>
+<td></td>
+<td>r5</td>
+</tr>
+<tr>
+<td>15</td>
+<td>r7</td>
+<td>r7</td>
+<td>r7</td>
+<td>r7</td>
+<td></td>
+<td>r7</td>
+<td></td>
+<td>r7</td>
+</tr>
+</tbody>
+</table>
+<p><figure><img data-width="-1" data-height="-1" src="./images/LR分析表.png" alt="LR分析表" /><figcaption>LR分析表</figcaption></figure></p>
+<p>最后实现算法4.3，其伪代码如下：</p>
+<blockquote><p>输入：文法G的一张分析表和一个输入符号串ω
+输出：若ω∈L(G)，得到ω的自底向上的分析，否则报错
+方法：开始时，初始状态S0在栈顶，ω$在输入缓冲器中
+    置ip指向ω$的第一个符号；
+    repeat  forever   begin
+    令S是栈顶状态，a是ip所指向的符号；
+    if action[S，a]=shift S’  then  begin
+        把a和S’依次入栈；
+        推进ip，使它指向下一个输入符号
+        end
+    else if action[S，a]=reduce by A→β  then  begin
+        从栈顶弹出2*|β|个符号；
+        令S’是现在的栈顶状态，把A和goto[S’，A]入栈；
+        输出产生式A→β
+        end
+    else if action[S，a]=accept  then  return
+    else  error()
+end.</p>
+</blockquote>
 </article>
     </section>
 
