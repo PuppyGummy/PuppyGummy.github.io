@@ -96,33 +96,33 @@ excerpt: a simple grammar parser implemented by c++
 
 方法：开始时，初始状态S0在栈顶，ω$在输入缓冲器中
 
-    `置ip指向ω$的第一个符号；`
+`置ip指向ω$的第一个符号；`
     
-    `repeat  forever   begin`
+`repeat  forever   begin`
     
-    `令S是栈顶状态，a是ip所指向的符号；`
+`令S是栈顶状态，a是ip所指向的符号；`
     
-    `if action[S，a]=shift S’  then  begin`
+`if action[S，a]=shift S’  then  begin`
     
-        `把a和S’依次入栈；`
+`   把a和S’依次入栈；`
         
-        `推进ip，使它指向下一个输入符号`
+`   推进ip，使它指向下一个输入符号`
         
-        `end`
+`   end`
         
-    `else if action[S，a]=reduce by A→β  then  begin`
+`else if action[S，a]=reduce by A→β  then  begin`
     
-        `从栈顶弹出2*|β|个符号；`
+`   从栈顶弹出2*|β|个符号；`
         
-        `令S’是现在的栈顶状态，把A和goto[S’，A]入栈；`
+`   令S’是现在的栈顶状态，把A和goto[S’，A]入栈；`
         
-        `输出产生式A→β`
+`   输出产生式A→β`
         
-        `end`
+`   end`
         
-    `else if action[S，a]=accept  then  return`
+`else if action[S，a]=accept  then  return`
     
-    `else  error()`
+`else  error()`
     
 end.
 
