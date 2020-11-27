@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Kami的Blog</title><link>/</link><description>能吃是福</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/icon.png</url><title>Kami的Blog</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Fri, 27 Nov 2020 11:24:17 +0806</lastBuildDate><pubDate>Fri, 27 Nov 2020 11:24:17 +0806</pubDate><item><title>我的第一篇文章</title><link>/archives/my-first-awesome-post/</link><description>&lt;p&gt;这是我的第一篇文章。文章使用 GitHub 管理，并通过 GitHub Actions 自动构建与发布！&lt;/p&gt;
-</description><author>815918091@qq.com (卡咪)</author><guid isPermaLink="true">/archives/my-first-awesome-post/</guid><pubDate>Tue, 17 Dec 2019 20:34:00 +0806</pubDate></item><item><title>Hello World!</title><link>/archives/typography/</link><description>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Kami的Blog</title><link>/</link><description>能吃是福</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/icon.png</url><title>Kami的Blog</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Fri, 27 Nov 2020 11:42:13 +0806</lastBuildDate><pubDate>Fri, 27 Nov 2020 11:42:13 +0806</pubDate><item><title>Hello World!</title><link>/archives/typography/</link><description>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
 &lt;h3&gt;L3 Heading&lt;/h3&gt;
 &lt;h4&gt;L4 Heading&lt;/h4&gt;
 &lt;h5&gt;L5 Heading&lt;/h5&gt;
@@ -79,4 +78,62 @@
 &lt;/table&gt;
 &lt;h2&gt;Link Card&lt;/h2&gt;
 &lt;div class="links"&gt;
-&lt;a style="display:block" target="_blank" href="https://www.imalan.cn" class="board-item"&gt;                 &lt;div class="board-thumb"&gt;&lt;img src="https://secure.gravatar.com/avatar/1741a6eef5c824899e347e4afcbaa75d?s=200&amp;r=G&amp;d="&gt;&lt;/div&gt;                 &lt;div class="board-title"&gt;AlanDecode&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;hr&gt;&lt;div class="footnotes"&gt;&lt;ol&gt;&lt;li id="fn_1"&gt;Home page for AlanDecode &lt;a no-style href="#fn_ref_1"&gt;↩&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</description><author>815918091@qq.com (AlanDecode)</author><guid isPermaLink="true">/archives/typography/</guid><pubDate>Wed, 18 Dec 2019 16:50:00 +0806</pubDate></item></channel></rss>
+&lt;a style="display:block" target="_blank" href="https://www.imalan.cn" class="board-item"&gt;                 &lt;div class="board-thumb"&gt;&lt;img src="https://secure.gravatar.com/avatar/1741a6eef5c824899e347e4afcbaa75d?s=200&amp;r=G&amp;d="&gt;&lt;/div&gt;                 &lt;div class="board-title"&gt;AlanDecode&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;hr&gt;&lt;div class="footnotes"&gt;&lt;ol&gt;&lt;li id="fn_1"&gt;Home page for AlanDecode &lt;a no-style href="#fn_ref_1"&gt;↩&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</description><author>815918091@qq.com (AlanDecode)</author><guid isPermaLink="true">/archives/typography/</guid><pubDate>Wed, 18 Dec 2019 16:50:00 +0806</pubDate></item><item><title>C++实现算术表达式的语法编译程序</title><link>/archives/grammar-parser-implementation/</link><description>&lt;div class="notice"&gt;本文的前提：
+
+编写语法分析程序，实现对算术表达式的语法分析。要求所分析算数表达式由如下的文法产生
+
+&lt;code&gt;E-&amp;gt;E+T | E-T | T
+
+T-&amp;gt;T*F | T/F | F
+
+F-&amp;gt; (E) | num&lt;/code&gt;
+
+实验要求：在对输人的算术表达式进行分析的过程中，依次输出所采用的产生式
+
+编写算法分析程序实现自底向上的分析，要求如下
+
+(1)构造识别该文法所有活前缀的DFA
+
+(2)构造该文法的LR分析表
+
+(3)编程实现算法4.3，构造LR分析程序&lt;/div&gt;&lt;hr&gt;
+&lt;h2&gt;分析&lt;/h2&gt;
+&lt;p&gt;首先，对于给出的文法，写出其拓广文法：&lt;/p&gt;
+&lt;p&gt;`(0) E'-&amp;gt;E&lt;/p&gt;
+&lt;p&gt;(1) E-&amp;gt;E+T&lt;/p&gt;
+&lt;p&gt;(2) E-&amp;gt;E-T&lt;/p&gt;
+&lt;p&gt;(3) E-&amp;gt;T&lt;/p&gt;
+&lt;p&gt;(4) T-&amp;gt;T*F&lt;/p&gt;
+&lt;p&gt;(5) T-&amp;gt;T/F&lt;/p&gt;
+&lt;p&gt;(6) T-&amp;gt;F&lt;/p&gt;
+&lt;p&gt;(7) F-&amp;gt; (E)&lt;/p&gt;
+&lt;p&gt;(8) F-&amp;gt;num`&lt;/p&gt;
+&lt;p&gt;构造如下的识别该文法所有活前缀的DFA：&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img data-width="993" data-height="920" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/60aaf8a7e4a5a4c832fae0abe9cb57af.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;同时写出相应的FOLLOW集：&lt;/p&gt;
+&lt;p&gt;`follow(E') = { $ }&lt;/p&gt;
+&lt;p&gt;follow(E) = { +, -, ), $ }&lt;/p&gt;
+&lt;p&gt;follow(T) = follow(F) = { *, /, +, -, ), $ }`&lt;/p&gt;
+&lt;p&gt;然后，根据构造的DFA和FOLLOW集，可以填出对应的LR分析表：&lt;/p&gt;
+&lt;p&gt;状态 | action | goto&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; | + | - | * | / | ( | ) | num | $ | E | T | F
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;0   |               s4      s5      1   2   3
+1 | s6  | s7    |   |               acc&lt;br&gt;
+2   | r3    | r3    | s8    s9      r3      r3&lt;br&gt;
+3   | r6    | r6    | r6    r6      r6      r6&lt;br&gt;
+4   | |                 s4      s5      10  2   3
+5   | r8    | r8    r8  r8      r8      r8&lt;br&gt;
+6   | |                 s4      s5          11  3
+7   | |                 s4      s5          12  3
+8   | |                 s4      s5              13
+9   | |                 s4      s5              14
+10 |    s6  | s7    |   |       s15&lt;br&gt;
+11  | r1    | r1    | s8    | s9    |   | r1    |   | r1&lt;br&gt;
+12  | r2    | r2    | s8    | s9    |   | r2    |   | r2&lt;br&gt;
+13  | r4    | r4    | r4    | r4    |   | r4    |   | r4&lt;br&gt;
+14  | r5    | r5    | r5    | r5    |   | r5    |   | r5&lt;br&gt;
+15  | r7    | r7    | r7    | r7    |   | r7    |   | r7&lt;/p&gt;
+</description><author>815918091@qq.com (卡咪)</author><guid isPermaLink="true">/archives/grammar-parser-implementation/</guid><pubDate>Fri, 27 Nov 2020 20:34:00 +0806</pubDate></item></channel></rss>

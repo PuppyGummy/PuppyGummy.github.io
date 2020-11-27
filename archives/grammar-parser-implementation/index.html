@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/1972c30641f5d4f06230db472598d81c.json"
+            api: "https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/8ff148e89ce2054389ce29b1f413b548.json"
         }
     </script>
     <script>
@@ -32,19 +32,20 @@
         });
     </script>
     
-<title>Tag: 博客 - Kami的Blog</title>
+<title>C++实现算术表达式的语法编译程序 - Kami的Blog</title>
 <meta name="author" content="卡咪" />
-<meta name="description" content="能吃是福" />
-<meta property="og:title" content="Tag: 博客 - Kami的Blog" />
-<meta property="og:description" content="能吃是福" />
+<meta name="description" content="a simple grammar parser implemented by c++" />
+<meta property="og:title" content="C++实现算术表达式的语法编译程序 - Kami的Blog" />
+<meta property="og:description" content="a simple grammar parser implemented by c++" />
 <meta property="og:site_name" content="Kami的Blog" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/tag/博客/" />
-<meta property="og:image" content="Kami的Blog" />
-<meta name="twitter:title" content="Tag: 博客 - Kami的Blog" />
-<meta name="twitter:description" content="能吃是福" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/grammar-parser-implementation/" />
+<meta property="og:image" content="" />
+<meta property="article:published_time" content="2020-11-27T20:34:00-00.00" />
+<meta name="twitter:title" content="C++实现算术表达式的语法编译程序 - Kami的Blog" />
+<meta name="twitter:description" content="a simple grammar parser implemented by c++" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/icon.png" />
+<meta name="twitter:image" content="" />
 
 
     
@@ -53,7 +54,7 @@
 
     </head>
     
-    <body class="archive">
+    <body class="content">
         <header>
             <div class="container">
                 <section>
@@ -95,7 +96,7 @@
                     
                     <section>
                         
-    <div class=" "><span><a href="/category/Maverick/">Maverick</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/typography/">Hello World!</a></li></ul></div><div class=" "><span><a href="/category/默认分类/">默认分类</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/my-first-awesome-post/">我的第一篇文章</a></li></ul></div>
+    <div class="open "><span><a href="/category/编译原理/">编译原理</a><button class="toggle_sidebar fa"></button></span><ul><li class="current"><a href="/archives/grammar-parser-implementation/">C++实现算术表达式的语法编译程序</a></li></ul></div><div class=" "><span><a href="/category/Maverick/">Maverick</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/typography/">Hello World!</a></li></ul></div>
 
                     </section>
                     <section hidden class="sidebar-external-link">
@@ -111,38 +112,117 @@
                 </aside>
                 <div id="content-wrapper">
                     <div id="content">
-
     <section>
-        <h1 class="page-title">TAG: #博客</h1>
-        <div id="content-list">
-            
-            <section class="card-list">
+        <h1 class="post-title">C++实现算术表达式的语法编译程序</h1>
+        <p class="post-meta">
+            <time>November 27 2020</time>
+            <span class="tags">
                 
-                    <a class="card" href="/archives/my-first-awesome-post/">
-                        <time>December 17 2019</time>
-                        <span>我的第一篇文章</span>
-                    </a>
+                <span>
+                    <a href="/tag/C++/">#C++</a>
+                </span>
                 
-            </section>
-        </div>
+                <span>
+                    <a href="/tag/编译原理/">#编译原理</a>
+                </span>
+                
+            </span>
+        </p>
+        <article class="yue"><div class="notice">本文的前提：
+
+编写语法分析程序，实现对算术表达式的语法分析。要求所分析算数表达式由如下的文法产生
+
+<code>E-&gt;E+T | E-T | T
+
+T-&gt;T*F | T/F | F
+
+F-&gt; (E) | num</code>
+
+实验要求：在对输人的算术表达式进行分析的过程中，依次输出所采用的产生式
+
+编写算法分析程序实现自底向上的分析，要求如下
+
+(1)构造识别该文法所有活前缀的DFA
+
+(2)构造该文法的LR分析表
+
+(3)编程实现算法4.3，构造LR分析程序</div><hr>
+<h2>分析</h2>
+<p>首先，对于给出的文法，写出其拓广文法：</p>
+<p>`(0) E'-&gt;E</p>
+<p>(1) E-&gt;E+T</p>
+<p>(2) E-&gt;E-T</p>
+<p>(3) E-&gt;T</p>
+<p>(4) T-&gt;T*F</p>
+<p>(5) T-&gt;T/F</p>
+<p>(6) T-&gt;F</p>
+<p>(7) F-&gt; (E)</p>
+<p>(8) F-&gt;num`</p>
+<p>构造如下的识别该文法所有活前缀的DFA：</p>
+<p><figure><img data-width="993" data-height="920" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/60aaf8a7e4a5a4c832fae0abe9cb57af.png" alt="" /></figure></p>
+<p>同时写出相应的FOLLOW集：</p>
+<p>`follow(E') = { $ }</p>
+<p>follow(E) = { +, -, ), $ }</p>
+<p>follow(T) = follow(F) = { *, /, +, -, ), $ }`</p>
+<p>然后，根据构造的DFA和FOLLOW集，可以填出对应的LR分析表：</p>
+<p>状态 | action | goto</p>
+
+<pre><code> | + | - | * | / | ( | ) | num | $ | E | T | F
+</code></pre>
+<hr>
+<p>0   |               s4      s5      1   2   3
+1 | s6  | s7    |   |               acc<br>
+2   | r3    | r3    | s8    s9      r3      r3<br>
+3   | r6    | r6    | r6    r6      r6      r6<br>
+4   | |                 s4      s5      10  2   3
+5   | r8    | r8    r8  r8      r8      r8<br>
+6   | |                 s4      s5          11  3
+7   | |                 s4      s5          12  3
+8   | |                 s4      s5              13
+9   | |                 s4      s5              14
+10 |    s6  | s7    |   |       s15<br>
+11  | r1    | r1    | s8    | s9    |   | r1    |   | r1<br>
+12  | r2    | r2    | s8    | s9    |   | r2    |   | r2<br>
+13  | r4    | r4    | r4    | r4    |   | r4    |   | r4<br>
+14  | r5    | r5    | r5    | r5    |   | r5    |   | r5<br>
+15  | r7    | r7    | r7    | r7    |   | r7    |   | r7</p>
+</article>
     </section>
+
+    
+    <section id="content-pager">
+        
+        
+            <div class="prev">
+                <a class="card" href="/archives/typography/">
+                    <time>December 18 2019</time>
+                    <span>Hello World!</span>
+                </a>
+            </div>
+        
+    </section>
+    
 
     
 
     <script>
-        document.body.classList.add('archive');
-        document.body.classList.remove('content');
+        document.body.classList.add('content');
+        document.body.classList.remove('archive');
     </script>
-
 </div>
                     <footer>
                         <span>Copyright © 2020 卡咪</span>
                         
+    
+
                         
                     </footer>
                 </div>
                 
-<aside id="toc-container" class="no-scrollbar no-bg"></aside>
+<aside id="toc-container" class="no-scrollbar">
+    <span><i class="fa fa-align-right"></i> CONTENTS</span>
+    <div id="toc"></div>
+</aside>
 
             </div>
         </main>

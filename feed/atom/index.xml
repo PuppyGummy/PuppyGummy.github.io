@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>Kami的Blog</title><updated>2020-11-27T11:24:17.072683+08:06</updated><author><name>卡咪</name><email>815918091@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/icon.png</logo><subtitle>能吃是福</subtitle><entry><id>/archives/my-first-awesome-post/</id><title>我的第一篇文章</title><updated>2020-11-27T11:24:17.072800+00:00</updated><author><name>卡咪</name><email>815918091@qq.com</email></author><content>&lt;p&gt;这是我的第一篇文章。文章使用 GitHub 管理，并通过 GitHub Actions 自动构建与发布！&lt;/p&gt;
-</content><link href="/archives/my-first-awesome-post/" rel="alternate"/><published>2019-12-17T20:34:00+08:06</published></entry><entry><id>/archives/typography/</id><title>Hello World!</title><updated>2020-11-27T11:24:17.072748+00:00</updated><author><name>AlanDecode</name><email>815918091@qq.com</email></author><content>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>Kami的Blog</title><updated>2020-11-27T11:42:13.660745+08:06</updated><author><name>卡咪</name><email>815918091@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/icon.png</logo><subtitle>能吃是福</subtitle><entry><id>/archives/typography/</id><title>Hello World!</title><updated>2020-11-27T11:42:13.660879+00:00</updated><author><name>AlanDecode</name><email>815918091@qq.com</email></author><content>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
 &lt;h3&gt;L3 Heading&lt;/h3&gt;
 &lt;h4&gt;L4 Heading&lt;/h4&gt;
 &lt;h5&gt;L5 Heading&lt;/h5&gt;
@@ -79,4 +78,62 @@
 &lt;/table&gt;
 &lt;h2&gt;Link Card&lt;/h2&gt;
 &lt;div class="links"&gt;
-&lt;a style="display:block" target="_blank" href="https://www.imalan.cn" class="board-item"&gt;                 &lt;div class="board-thumb"&gt;&lt;img src="https://secure.gravatar.com/avatar/1741a6eef5c824899e347e4afcbaa75d?s=200&amp;r=G&amp;d="&gt;&lt;/div&gt;                 &lt;div class="board-title"&gt;AlanDecode&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;hr&gt;&lt;div class="footnotes"&gt;&lt;ol&gt;&lt;li id="fn_1"&gt;Home page for AlanDecode &lt;a no-style href="#fn_ref_1"&gt;↩&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</content><link href="/archives/typography/" rel="alternate"/><published>2019-12-18T16:50:00+08:06</published></entry></feed>
+&lt;a style="display:block" target="_blank" href="https://www.imalan.cn" class="board-item"&gt;                 &lt;div class="board-thumb"&gt;&lt;img src="https://secure.gravatar.com/avatar/1741a6eef5c824899e347e4afcbaa75d?s=200&amp;r=G&amp;d="&gt;&lt;/div&gt;                 &lt;div class="board-title"&gt;AlanDecode&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;hr&gt;&lt;div class="footnotes"&gt;&lt;ol&gt;&lt;li id="fn_1"&gt;Home page for AlanDecode &lt;a no-style href="#fn_ref_1"&gt;↩&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</content><link href="/archives/typography/" rel="alternate"/><published>2019-12-18T16:50:00+08:06</published></entry><entry><id>/archives/grammar-parser-implementation/</id><title>C++实现算术表达式的语法编译程序</title><updated>2020-11-27T11:42:13.660820+00:00</updated><author><name>卡咪</name><email>815918091@qq.com</email></author><content>&lt;div class="notice"&gt;本文的前提：
+
+编写语法分析程序，实现对算术表达式的语法分析。要求所分析算数表达式由如下的文法产生
+
+&lt;code&gt;E-&amp;gt;E+T | E-T | T
+
+T-&amp;gt;T*F | T/F | F
+
+F-&amp;gt; (E) | num&lt;/code&gt;
+
+实验要求：在对输人的算术表达式进行分析的过程中，依次输出所采用的产生式
+
+编写算法分析程序实现自底向上的分析，要求如下
+
+(1)构造识别该文法所有活前缀的DFA
+
+(2)构造该文法的LR分析表
+
+(3)编程实现算法4.3，构造LR分析程序&lt;/div&gt;&lt;hr&gt;
+&lt;h2&gt;分析&lt;/h2&gt;
+&lt;p&gt;首先，对于给出的文法，写出其拓广文法：&lt;/p&gt;
+&lt;p&gt;`(0) E'-&amp;gt;E&lt;/p&gt;
+&lt;p&gt;(1) E-&amp;gt;E+T&lt;/p&gt;
+&lt;p&gt;(2) E-&amp;gt;E-T&lt;/p&gt;
+&lt;p&gt;(3) E-&amp;gt;T&lt;/p&gt;
+&lt;p&gt;(4) T-&amp;gt;T*F&lt;/p&gt;
+&lt;p&gt;(5) T-&amp;gt;T/F&lt;/p&gt;
+&lt;p&gt;(6) T-&amp;gt;F&lt;/p&gt;
+&lt;p&gt;(7) F-&amp;gt; (E)&lt;/p&gt;
+&lt;p&gt;(8) F-&amp;gt;num`&lt;/p&gt;
+&lt;p&gt;构造如下的识别该文法所有活前缀的DFA：&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img data-width="993" data-height="920" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/60aaf8a7e4a5a4c832fae0abe9cb57af.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;同时写出相应的FOLLOW集：&lt;/p&gt;
+&lt;p&gt;`follow(E') = { $ }&lt;/p&gt;
+&lt;p&gt;follow(E) = { +, -, ), $ }&lt;/p&gt;
+&lt;p&gt;follow(T) = follow(F) = { *, /, +, -, ), $ }`&lt;/p&gt;
+&lt;p&gt;然后，根据构造的DFA和FOLLOW集，可以填出对应的LR分析表：&lt;/p&gt;
+&lt;p&gt;状态 | action | goto&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; | + | - | * | / | ( | ) | num | $ | E | T | F
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;0   |               s4      s5      1   2   3
+1 | s6  | s7    |   |               acc&lt;br&gt;
+2   | r3    | r3    | s8    s9      r3      r3&lt;br&gt;
+3   | r6    | r6    | r6    r6      r6      r6&lt;br&gt;
+4   | |                 s4      s5      10  2   3
+5   | r8    | r8    r8  r8      r8      r8&lt;br&gt;
+6   | |                 s4      s5          11  3
+7   | |                 s4      s5          12  3
+8   | |                 s4      s5              13
+9   | |                 s4      s5              14
+10 |    s6  | s7    |   |       s15&lt;br&gt;
+11  | r1    | r1    | s8    | s9    |   | r1    |   | r1&lt;br&gt;
+12  | r2    | r2    | s8    | s9    |   | r2    |   | r2&lt;br&gt;
+13  | r4    | r4    | r4    | r4    |   | r4    |   | r4&lt;br&gt;
+14  | r5    | r5    | r5    | r5    |   | r5    |   | r5&lt;br&gt;
+15  | r7    | r7    | r7    | r7    |   | r7    |   | r7&lt;/p&gt;
+</content><link href="/archives/grammar-parser-implementation/" rel="alternate"/><published>2020-11-27T20:34:00+08:06</published></entry></feed>
