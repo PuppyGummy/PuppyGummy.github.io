@@ -3,7 +3,7 @@
 """
 
 # For Maverick
-site_prefix = "/Blog-With-GitHub-Boilerplate/"
+site_prefix = "/"
 source_dir = "../src/"
 build_dir = "../dist/"
 index_page_size = 10
@@ -11,7 +11,7 @@ archives_page_size = 20
 template = "Kepler"
 enable_jsdelivr = {
     "enabled": True,
-    "repo": "PuppyGummy/Blog-With-GitHub-Boilerplate@gh-pages"
+    "repo": "PuppyGummy/@gh-pages"
 }
 
 # 站点设置
@@ -26,14 +26,14 @@ key_words = ['K@M1', 'Blog']
 language = 'zh-CN'
 external_links = [
     {
-        "name": "",
-        "url": "",
-        "brief": ""
+        "name": "我的质问箱",
+        "url": "https://www.pomeet.com/puppy509",
+        "brief": "来匿名提问吧"
     },
     {
-        "name": "",
-        "url": "",
-        "brief": ""
+        "name": "我的bilibili",
+        "url": "https://space.bilibili.com/1723019",
+        "brief": "有时会直播教学C语言"
     }
 ]
 nav = [
@@ -57,17 +57,17 @@ nav = [
 social_links = [
     {
         "name": "Twitter",
-        "url": "https://twitter.com/AlanDecode",
+        "url": "https://twitter.com/chokorekami",
         "icon": "gi gi-twitter"
     },
     {
         "name": "GitHub",
-        "url": "https://github.com/AlanDecode",
+        "url": "https://github.com/PuppyGummy",
         "icon": "gi gi-github"
     },
     {
         "name": "Weibo",
-        "url": "https://weibo.com/5245109677/",
+        "url": "https://weibo.com/2485411230/",
         "icon": "gi gi-weibo"
     }
 ]
