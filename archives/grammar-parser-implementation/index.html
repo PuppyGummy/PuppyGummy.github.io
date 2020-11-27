@@ -8,28 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="K@M1,Blog" />
     <meta name="generator" content="Maverick 1.1" />
-    <meta name="template" content="Kepler" />
+    <meta name="template" content="Galileo" />
     <link rel="alternate" type="application/rss+xml" title="Kami的Blog &raquo; RSS 2.0" href="/feed/index.xml" />
     <link rel="alternate" type="application/atom+xml" title="Kami的Blog &raquo; ATOM 1.0" href="/feed/atom/index.xml" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/assets/kepler-426969802d.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/assets/galileo-8d8763e752.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/assets/katex.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700&display=swap">
     <script>
         var ExSearchConfig = {
             root: "",
             api: "https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/dccf50f798988aac1532fb5819f1fb46.json"
         }
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function(){
-            if(/Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent)){
-                document.body.classList.add('safari')
-            }else{
-                document.body.classList.remove('safari')
-            }
-        });
     </script>
     
 <title>C++实现算术表达式的语法编译程序 - Kami的Blog</title>
@@ -54,81 +45,42 @@
 
     </head>
     
-    <body class="content">
-        <header>
-            <div class="container">
-                <section>
-                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/icon.png">Kami的Blog</a>
-                </section>
-                <section>
-                    <nav>
-                        <ul>
-                            
-                                <li><a href="https://www.pomeet.com/puppy509" target="_blank">我的质问箱</a></li>
-                            
-                                <li><a href="https://space.bilibili.com/1723019" target="_blank">我的bilibili</a></li>
-                            
-                        </ul>
+    <body>
+        
+        <div class="container">
+            <header id="ga-header">
+                <div first>
+                    <aside id="ga-brand">
+                        <h1 class="brand"><a class="no-style" href="/">Kami的Blog</a></h1>
+                        <p>能吃是福</p>
+                    </aside>
+                </div>
+                <div second id="ga-nav">
+                    <nav class="navs">
+                        <ul><li><a class="ga-highlight" href="/" target="_self">首页</a></li><span class="separator">·</span><li><a class="ga-highlight" href="/archives/" target="_self">归档</a></li><span class="separator">·</span><li><a class="ga-highlight" href="/about/" target="_self">关于</a></li><span class="separator">·</span><li><a href="#" target="_self" class="search-form-input ga-highlight">搜索</a></li></ul>
                     </nav>
-                </section>
-    
-                <section>
-                    <a hidden class="toggle-toc" target="_self" href="javascript:void(0)" onclick="$(body).toggleClass('toc-open')"><i class="fa fa-align-right"></i></a>
-                    <a hidden class="toggle-navbar" target="_self" href="javascript:void(0)" onclick="$(body).toggleClass('navbar-open')"><i class="fa fa-indent"></i></a>
-                    <button class="search-form-input"><i class="fa fa-search"></i></button>
-                </section>
-            </div>
-        </header>
-
-        <main>
-            <div id="pjax-container" class="container">
-                <aside id="navbar" class="no-scrollbar">
-                    
-                    <section class="sidebar-nav">
-                        
-                            <div class="None" ><span><a href="/">首页</a></span></div>
-                        
-                            <div class="None" ><span><a href="/archives/">归档</a></span></div>
-                        
-                            <div class="None" ><span><a href="/about/">关于</a></span></div>
-                        
-                    </section>
-                    
-                    <section>
-                        
-    <div class="open "><span><a href="/category/编译原理/">编译原理</a><button class="toggle_sidebar fa"></button></span><ul><li class="current"><a href="/archives/grammar-parser-implementation/">C++实现算术表达式的语法编译程序</a></li></ul></div><div class=" "><span><a href="/category/Maverick/">Maverick</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/typography/">Hello World!</a></li></ul></div>
-
-                    </section>
-                    <section hidden class="sidebar-external-link">
-                        
-                            <div class="external"><span><a href="https://www.pomeet.com/puppy509">我的质问箱</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
-                        
-                            <div class="external"><span><a href="https://space.bilibili.com/1723019">我的bilibili</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
-                        
-                    </section>
-                    <section class="maverick">
-                        <div><span style="border: 1px solid #d4dadf;"><a href="https://github.com/AlanDecode/Maverick" target="_blank">Maverick & Kepler</a></span></div>
-                    </section>
-                </aside>
-                <div id="content-wrapper">
-                    <div id="content">
-    <section>
-        <h1 class="post-title">C++实现算术表达式的语法编译程序</h1>
-        <p class="post-meta">
-            <time>November 27 2020</time>
-            <span class="tags">
+                </div>
+            </header>
+            <div class="wrapper">
                 
-                <span>
-                    <a href="/tag/C++/">#C++</a>
-                </span>
+<main>    
+    <section class="ga-section ga-content">
+        <article class="yue">
+            <h1 class="ga-post_title">C++实现算术表达式的语法编译程序</h1>
+            <span class="ga-post_meta ga-mono">
+                <span>卡咪</span>
+                <time>
+                    2020-11-27
+                </time>
                 
-                <span>
-                    <a href="/tag/编译原理/">#编译原理</a>
-                </span>
+                in <a no-style class="category" href="/category/编译原理/">
+                    编译原理
+                </a>
+                
                 
             </span>
-        </p>
-        <article class="yue"><p>本文的前提：</p>
+            <div class="ga-content_body">
+                <p>本文的前提：</p>
 <p>编写语法分析程序，实现对算术表达式的语法分析。要求所分析算数表达式由如下的文法产生</p>
 <blockquote><p>E-&gt;E+T | E-T | T</p>
 <p>T-&gt;T*F | T/F | F</p>
@@ -152,7 +104,7 @@
 <p>(8) F-&gt;num</p>
 </blockquote>
 <p>构造如下的识别该文法所有活前缀的DFA：</p>
-<p><figure><img data-width="993" data-height="920" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/60aaf8a7e4a5a4c832fae0abe9cb57af.png" alt="" /></figure></p>
+<p><figure style="flex: 53.96739130434783" ><img loading="lazy" width="993" height="920" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/60aaf8a7e4a5a4c832fae0abe9cb57af.png" /></figure></p>
 <p>同时写出相应的FOLLOW集：</p>
 <blockquote><p>follow(E') = { $ }</p>
 <p>follow(E) = { +, -, ), $ }</p>
@@ -584,94 +536,94 @@ else  error()
 <p>至此，分析完成。</p>
 <h2>测试</h2>
 <p>输入几个算术表达式，来测试程序：</p>
-<p><figure><img data-width="864" data-height="633" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/a24ffef0641ba18c73619e1a7e6d91f6.png" alt="" /></figure>
-<figure><img data-width="864" data-height="664" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/02f7f61e4c7378742a84125b63c3c077.png" alt="输入合法的表达式之后程序的输出" /><figcaption>输入合法的表达式之后程序的输出</figcaption></figure>
-<figure><img data-width="864" data-height="639" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/3c695da8d51ad678f7e786c09e61913f.png" alt="" /></figure>
-<figure><img data-width="864" data-height="212" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/d6d55c2f1253130ce716c4d76975bb60.png" alt="输入非法的表达式之后程序的输出" /><figcaption>输入非法的表达式之后程序的输出</figcaption></figure></p>
+<p><figure style="flex: 68.24644549763033" ><img loading="lazy" width="864" height="633" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/a24ffef0641ba18c73619e1a7e6d91f6.png" /></figure>
+<figure style="flex: 65.06024096385542" ><img loading="lazy" width="864" height="664" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/02f7f61e4c7378742a84125b63c3c077.png" /><figcaption>输入合法的表达式之后程序的输出</figcaption></figure>
+<figure style="flex: 67.6056338028169" ><img loading="lazy" width="864" height="639" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/3c695da8d51ad678f7e786c09e61913f.png" /></figure>
+<figure style="flex: 203.77358490566039" ><img loading="lazy" width="864" height="212" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/d6d55c2f1253130ce716c4d76975bb60.png" /><figcaption>输入非法的表达式之后程序的输出</figcaption></figure></p>
 <p>注意：这里使用了C++提供的<code>setw()</code>函数来进行格式化输出。该函数被包含在<code>&lt;iomanip&gt;</code>库中。</p>
 <p>其使用方法可以参考此文章：<a href="https://blog.csdn.net/qq_21808961/article/details/78234780">C/C++ 输出间隔控制</a></p>
-</article>
-    </section>
 
-    
-    <section id="content-pager">
-        
-        
-            <div class="prev">
-                <a class="card" href="/archives/typography/">
-                    <time>December 18 2019</time>
-                    <span>Hello World!</span>
-                </a>
             </div>
-        
-    </section>
+        </article>
+        <div id="ga-tags">
     
-
+    <span class="ga-tag">
+        <a class="ga-highlight" href="/tag/C++/">#C++</a>
+    </span>
     
-
-    <script>
-        document.body.classList.add('content');
-        document.body.classList.remove('archive');
-    </script>
+    <span class="ga-tag">
+        <a class="ga-highlight" href="/tag/编译原理/">#编译原理</a>
+    </span>
+    
 </div>
-                    <footer>
-                        <span>Copyright © 2020 卡咪</span>
-                        
+    </section>
+
+    
+<section id="ga-content_pager">
+
+    <div class="next">
+        <h3>没有了</h3>
+        <p class="yue">这是最新的文章</p>
+    </div>
+
+
+    <div class="prev">
+        <a class="ga-highlight" href="/archives/typography/">Hello World!</a>
+        <p class="yue">这是一篇示例文章，在这里你可以看到常用页面元素的显示效果。</p>
+    </div>
+
+</section>
+
+
     
 
-                        
-                    </footer>
-                </div>
-                
-<aside id="toc-container" class="no-scrollbar">
-    <span><i class="fa fa-align-right"></i> CONTENTS</span>
-    <div id="toc"></div>
-</aside>
+</main>
 
+                <footer class="ga-mono" id="ga-footer">
+                    <section>
+                        <span id="ga-uptime"></span>
+                        <span class="brand">Kami的Blog</span>
+                    </section>
+                    <section>
+                        <p class="copyright">
+                            <span>Copyright © 2020 卡咪</span>
+                            <span>Powered by <a no-style href="https://github.com/AlanDecode/Maverick" target="_blank">Maverick & Galileo</a></span>
+                        </p>
+                        <div class="copyright">
+                            <span class="footer-addon">
+                                
+                            </span>
+                            <nav class="social-links">
+                                <ul><li><a class="no-style" title="Twitter" href="https://twitter.com/chokorekami" target="_blank"><i class="gi gi-twitter"></i>Twitter</a></li><span class="separator">·</span><li><a class="no-style" title="GitHub" href="https://github.com/PuppyGummy" target="_blank"><i class="gi gi-github"></i>GitHub</a></li><span class="separator">·</span><li><a class="no-style" title="Weibo" href="https://weibo.com/2485411230/" target="_blank"><i class="gi gi-weibo"></i>Weibo</a></li></ul>
+                            </nav>
+                        </div>
+                    </section>
+                    <script>
+                        var site_build_date = "2020-11-27T16:42+08:00"
+                    </script>
+                    <script src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/assets/galileo-7c8cea54ab.js"></script>
+                </footer>
             </div>
-        </main>
+        </div>
+    </div>
 
+    <!--katex-->
+    <script defer src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/assets/katex.min.js"></script>
+    <script>
+    mathOpts = {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ]
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
 
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/assets/kepler-ef161b04d5.js"></script>
-        <script>
-            function ExSearchCall(item){
-                if (item && item.length) {
-                    $('.ins-close').click(); // 关闭搜索框
-                    $('input.ins-search-input').val(''); // 清空
-                    let url = item.attr('data-url'); // 获取目标页面 URL
-                    $.pjax({url: url, 
-                        container: '#pjax-container',
-                        fragment: '#pjax-container',
-                        timeout: 8000, }); // 发起一次 PJAX 请求
-                }
-            }
-        </script>
+    <script src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/assets/ExSearch/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
 
-        <!--Valine-->
-        
-
-        <!--ExSearch-->
-        <script src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
-        
-        <!--katex-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/assets/katex.min.css">
-        <script defer src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/assets/katex.min.js"></script>
-        <script>
-        mathOpts = {
-            delimiters: [
-                {left: "$$", right: "$$", display: true},
-                {left: "\\[", right: "\\]", display: true},
-                {left: "$", right: "$", display: false},
-                {left: "\\(", right: "\\)", display: false}
-            ]
-        };
-        </script>
-        <script defer src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
-
-        
+    
     </body>
 </html>
