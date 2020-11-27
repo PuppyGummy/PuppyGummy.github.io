@@ -8,7 +8,7 @@ source_dir = "../src/"
 build_dir = "../dist/"
 index_page_size = 10
 archives_page_size = 20
-template = "Galileo"
+template = "Kepler"
 enable_jsdelivr = {
     "enabled": True,
     "repo": "PuppyGummy/PuppyGummy.github.io@gh-pages"
