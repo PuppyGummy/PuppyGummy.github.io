@@ -183,7 +183,7 @@ int go_to[16][3]={
 };
 ```
 
-然后使用定义init()函数，将产生式初始化如下：
+然后定义`init()`函数，将产生式初始化如下：
 
 ```cpp
 void init() {
@@ -201,7 +201,7 @@ void init() {
 }
 ```
 
-同时定义一个convert函数，其作用是接受一个字符，返回该字符在LR分析表中所对应的列：
+同时定义一个`convert()`函数，其作用是接受一个字符，返回该字符在LR分析表中所对应的列：
 
 ```cpp
 int convert(char ch){
@@ -219,7 +219,7 @@ int convert(char ch){
 }
 ```
 
-在主体的analyze()函数中，定义三个stack
+在主体的`analyze()`函数中，定义三个stack
 
 ```cpp
     stack<int> state; //状态栈
@@ -252,7 +252,7 @@ while (!flag) { //当分析未结束时
         }
 ```
 
-然后将ch传给convert函数，获得action表对应的列，通过查action表即可得知当前动作：
+然后将`ch`传给`convert()`函数，获得action表对应的列，通过查action表即可得知当前动作：
 
 ```cpp
 Int col = convert(ch); //判断栈顶符号在action表中的哪一列
@@ -264,9 +264,9 @@ if (col == -1) { //如果无该符号，说明输入的表达式不合法，输�
 struct action a = action[row][col]; //查action表获取当前动作
 ```
 
-对于获得到的action a，其属性a.para有四种结果，分别对应四种操作：
+对于获得到的`action a`，其属性`a.para`有四种结果，分别对应四种操作：
 
-```
+```cpp
 if (a.para == 's') { //如果是移进
 ......
 state.push(a.val); //将下一个状态压进状态栈
@@ -299,3 +299,16 @@ state.push(go_to[state.top()][0]);
 ```
 
 至此，分析完成。
+
+输入几个算术表达式，来测试程序：
+
+[photos]
+![](./images/output1)
+![输入合法的表达式之后程序的输出](./images/output2)
+![](./images/output3)
+![输入非法的表达式之后程序的输出](./images/output4)
+[/photos]
+
+注意：这里使用了C++提供的`setw()`函数来进行格式化输出。该函数被包含在`<iomanip>`库中。
+
+其使用方法可以参考此文章：[C/C++ 输出间隔控制](https://blog.csdn.net/qq_21808961/article/details/78234780)
