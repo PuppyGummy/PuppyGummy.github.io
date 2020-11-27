@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/d7d8e9162054149c8ec3afaeae3eb248.json"
+            api: "https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/c79933658a988b6d0a9ff8fdd5dccc54.json"
         }
     </script>
     <script>
@@ -497,7 +497,7 @@ end.</code></pre>
         <span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
-<p>然后使用定义init()函数，将产生式初始化如下：</p>
+<p>然后定义<code>init()</code>函数，将产生式初始化如下：</p>
 <div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">E</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="sc">&#39;E&#39;</span><span class="p">;</span>
     <span class="n">E</span><span class="p">.</span><span class="n">right</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="s">&quot;E+T&quot;</span><span class="p">);</span> <span class="c1">//产生式编号为1</span>
@@ -512,7 +512,7 @@ end.</code></pre>
     <span class="n">F</span><span class="p">.</span><span class="n">right</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="s">&quot;num&quot;</span><span class="p">);</span> <span class="c1">//产生式编号为8</span>
 <span class="p">}</span>
 </pre></div>
-<p>同时定义一个convert函数，其作用是接受一个字符，返回该字符在LR分析表中所对应的列：</p>
+<p>同时定义一个<code>convert()</code>函数，其作用是接受一个字符，返回该字符在LR分析表中所对应的列：</p>
 <div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">convert</span><span class="p">(</span><span class="kt">char</span> <span class="n">ch</span><span class="p">){</span>
     <span class="k">switch</span><span class="p">(</span><span class="n">ch</span><span class="p">){</span>
         <span class="k">case</span> <span class="sc">&#39;+&#39;</span><span class="o">:</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
@@ -527,7 +527,7 @@ end.</code></pre>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
-<p>在主体的analyze()函数中，定义三个stack</p>
+<p>在主体的<code>analyze()</code>函数中，定义三个stack</p>
 <div class="highlight"><pre><span></span><span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">state</span><span class="p">;</span> <span class="c1">//状态栈</span>
     <span class="n">stack</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">symbol</span><span class="p">;</span> <span class="c1">//符号栈</span>
     <span class="n">stack</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">input</span><span class="p">;</span> <span class="c1">//输入缓冲区</span>
@@ -551,7 +551,7 @@ end.</code></pre>
             <span class="n">ch</span> <span class="o">=</span> <span class="sc">&#39;i&#39;</span><span class="p">;</span> <span class="c1">//将类型标记为数字类型</span>
         <span class="p">}</span>
 </pre></div>
-<p>然后将ch传给convert函数，获得action表对应的列，通过查action表即可得知当前动作：</p>
+<p>然后将<code>ch</code>传给<code>convert()</code>函数，获得action表对应的列，通过查action表即可得知当前动作：</p>
 <div class="highlight"><pre><span></span><span class="n">Int</span> <span class="n">col</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">ch</span><span class="p">);</span> <span class="c1">//判断栈顶符号在action表中的哪一列</span>
 <span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="n">state</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="c1">//判断当前所处的状态（在action表中的哪一行）</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">col</span> <span class="o">==</span> <span class="mi">-1</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//如果无该符号，说明输入的表达式不合法，输出提示语句并退出循环</span>
@@ -560,38 +560,45 @@ end.</code></pre>
 <span class="p">}</span>
 <span class="k">struct</span> <span class="nc">action</span> <span class="n">a</span> <span class="o">=</span> <span class="n">action</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">];</span> <span class="c1">//查action表获取当前动作</span>
 </pre></div>
-<p>对于获得到的action a，其属性a.para有四种结果，分别对应四种操作：</p>
+<p>对于获得到的<code>action a</code>，其属性<code>a.para</code>有四种结果，分别对应四种操作：</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">para</span> <span class="o">==</span> <span class="sc">&#39;s&#39;</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//如果是移进</span>
+<span class="p">......</span>
+<span class="n">state</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">val</span><span class="p">);</span> <span class="c1">//将下一个状态压进状态栈</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">!=</span> <span class="sc">&#39;i&#39;</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//如果缓冲区栈顶不是数字的话</span>
+                <span class="n">string</span> <span class="n">buffer</span> <span class="o">=</span> <span class="s">&quot; &quot;</span><span class="p">;</span>
+                <span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span>
+                <span class="n">symbol</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span> <span class="c1">//将缓冲区符号压栈（即移进操作）</span>
+                <span class="n">input</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+            <span class="p">}</span>
+<span class="c1">//是数字的情况，在前面对数字作处理时已经压进栈了，所以不必再做处理</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">para</span> <span class="o">==</span> <span class="sc">&#39;r&#39;</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//如果是规约</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">val</span><span class="p">;</span> <span class="c1">//获得产生式的编号</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//如果是E推导出的产生式</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">E</span><span class="p">.</span><span class="n">right</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="n">length</span><span class="p">();</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//从栈顶弹出2|β|个符号</span>
+    <span class="n">state</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+    <span class="n">symbol</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+<span class="p">}</span>
 
-<pre><code>if (a.para == 's') { //如果是移进
-......
-state.push(a.val); //将下一个状态压进状态栈
-            if (ch != 'i') { //如果缓冲区栈顶不是数字的话
-                string buffer = " ";
-                buffer[0] = ch;
-                symbol.push(buffer); //将缓冲区符号压栈（即移进操作）
-                input.pop();
-            }
-//是数字的情况，在前面对数字作处理时已经压进栈了，所以不必再做处理
-} else if (a.para == 'r') { //如果是规约
-int i = a.val; //获得产生式的编号
-if (i &gt;= 1 &amp;&amp; i &lt;= 3) { //如果是E推导出的产生式
-for (int j = 0; j &lt; E.right[i - 1].length(); j++) { //从栈顶弹出2|β|个符号
-    state.pop();
-    symbol.pop();
-}
-
-buffer[0] = E.left;
-symbol.push(buffer); //将E压栈
-state.push(go_to[state.top()][0]);
-//其他的情况与上面类似，在此不作列出
-} else if (a.para == 'a') { //分析完成
-    cout &lt;&lt; left &lt;&lt; setw(20) &lt;&lt; "Accept";
-    flag = true; //更改flag，退出循环
-} else if (a.para == '-') { //无该字符，输出提示语句
-    cout &lt;&lt; "The expression is illegal!" &lt;&lt; endl;
-    flag = true; //更改flag，退出循环
-}</code></pre>
+<span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">E</span><span class="p">.</span><span class="n">left</span><span class="p">;</span>
+<span class="n">symbol</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span> <span class="c1">//将E压栈</span>
+<span class="n">state</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">go_to</span><span class="p">[</span><span class="n">state</span><span class="p">.</span><span class="n">top</span><span class="p">()][</span><span class="mi">0</span><span class="p">]);</span>
+<span class="c1">//其他的情况与上面类似，在此不作列出</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">para</span> <span class="o">==</span> <span class="sc">&#39;a&#39;</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//分析完成</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">left</span> <span class="o">&lt;&lt;</span> <span class="n">setw</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Accept&quot;</span><span class="p">;</span>
+    <span class="n">flag</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">//更改flag，退出循环</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">para</span> <span class="o">==</span> <span class="sc">&#39;-&#39;</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//无该字符，输出提示语句</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;The expression is illegal!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">flag</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">//更改flag，退出循环</span>
+<span class="p">}</span>
+</pre></div>
 <p>至此，分析完成。</p>
+<p>输入几个算术表达式，来测试程序：</p>
+<div class="photos">
+<figure><img data-width="-1" data-height="-1" src="./images/output1" alt="" /></figure>
+<figure><img data-width="-1" data-height="-1" src="./images/output2" alt="输入合法的表达式之后程序的输出" /><figcaption>输入合法的表达式之后程序的输出</figcaption></figure>
+<figure><img data-width="-1" data-height="-1" src="./images/output3" alt="" /></figure>
+<figure><img data-width="-1" data-height="-1" src="./images/output4" alt="输入非法的表达式之后程序的输出" /><figcaption>输入非法的表达式之后程序的输出</figcaption></figure></div><p>注意：这里使用了C++提供的<code>setw()</code>函数来进行格式化输出。该函数被包含在<code>&lt;iomanip&gt;</code>库中。</p>
+<p>其使用方法可以参考此文章：<a href="https://blog.csdn.net/qq_21808961/article/details/78234780">C/C++ 输出间隔控制</a></p>
 </article>
     </section>
 
