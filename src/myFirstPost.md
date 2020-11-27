@@ -82,11 +82,11 @@ excerpt: a simple grammar parser implemented by c++
 8 | | | | | s4 | | s5 | | | | 13
 9 | | | | | s4 | | s5 | | | | 14
 10 | s6	| s7 |	| | | s15 | | | | |
-11 | r1	| r1 | s8 | s9 | | r1 | | r1 | | | | |
-12 | r2	| r2 | s8 | s9 | | r2 | | r2 | | | | |
-13 | r4	| r4 | r4 | r4 | | r4 | | r4 | | | | |
-14 | r5	| r5 | r5 | r5 | | r5 | | r5 | | | | |
-15 | r7	| r7 | r7 | r7 | | r7 | | r7 | | | | |
+11 | r1	| r1 | s8 | s9 | | r1 | | r1 | | |
+12 | r2	| r2 | s8 | s9 | | r2 | | r2 | | |
+13 | r4	| r4 | r4 | r4 | | r4 | | r4 | | |
+14 | r5	| r5 | r5 | r5 | | r5 | | r5 | | |
+15 | r7	| r7 | r7 | r7 | | r7 | | r7 | | |
 
 最后实现算法4.3，其伪代码如下：
 > 输入：文法G的一张分析表和一个输入符号串ω
@@ -103,21 +103,21 @@ excerpt: a simple grammar parser implemented by c++
 > 
 > if action[S，a]=shift S’  then  begin
 > 
->   把a和S’依次入栈；
+>     把a和S’依次入栈；
 > 
->   推进ip，使它指向下一个输入符号
+>     推进ip，使它指向下一个输入符号
 > 
->   end
+>     end
 > 
 > else if action[S，a]=reduce by A→β  then  begin
 > 
->   从栈顶弹出2*|β|个符号；
+>     从栈顶弹出2*|β|个符号；
 > 
->   令S’是现在的栈顶状态，把A和goto[S’，A]入栈；
+>     令S’是现在的栈顶状态，把A和goto[S’，A]入栈；
 > 
->   输出产生式A→β
+>     输出产生式A→β
 > 
->   end
+>     end
 > 
 > else if action[S，a]=accept  then  return
 > 
@@ -300,13 +300,15 @@ state.push(go_to[state.top()][0]);
 
 至此，分析完成。
 
+## 测试
+
 输入几个算术表达式，来测试程序：
 
 [photos]
-![](./images/output1)
-![输入合法的表达式之后程序的输出](./images/output2)
-![](./images/output3)
-![输入非法的表达式之后程序的输出](./images/output4)
+![](./images/output1.png)
+![输入合法的表达式之后程序的输出](./images/output2.png)
+![](./images/output3.png)
+![输入非法的表达式之后程序的输出](./images/output4.png)
 [/photos]
 
 注意：这里使用了C++提供的`setw()`函数来进行格式化输出。该函数被包含在`<iomanip>`库中。
