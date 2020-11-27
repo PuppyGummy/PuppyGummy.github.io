@@ -11,7 +11,8 @@ archives_page_size = 20
 template = {
     "name": "Kasper",
     "type": "git",
-    "url": "https://github.com/rosario/kasper"
+    "url": "https://github.com/rosario/kasper.git",
+    "branch": "latest"
 }
 enable_jsdelivr = {
     "enabled": True,
