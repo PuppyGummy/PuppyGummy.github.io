@@ -8,11 +8,7 @@ source_dir = "../src/"
 build_dir = "../dist/"
 index_page_size = 10
 archives_page_size = 20
-template = {
-    "name": "Kasper",
-    "type": "local",
-    "url": "../kasper-master"
-}
+template = Kepler
 enable_jsdelivr = {
     "enabled": True,
     "repo": "PuppyGummy/Blog-With-GitHub-Boilerplate@gh-pages"
