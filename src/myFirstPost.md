@@ -125,5 +125,5 @@ excerpt: a simple grammar parser implemented by c++
 > 
 >     else  error()
 > 
-> end.
+>     end.
 
