@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>Kami的Blog</title><updated>2020-11-27T13:22:59.056555+08:06</updated><author><name>卡咪</name><email>815918091@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/icon.png</logo><subtitle>能吃是福</subtitle><entry><id>/archives/typography/</id><title>Hello World!</title><updated>2020-11-27T13:22:59.056701+00:00</updated><author><name>AlanDecode</name><email>815918091@qq.com</email></author><content>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>Kami的Blog</title><updated>2020-11-27T13:26:32.936636+08:06</updated><author><name>卡咪</name><email>815918091@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/icon.png</logo><subtitle>能吃是福</subtitle><entry><id>/archives/typography/</id><title>Hello World!</title><updated>2020-11-27T13:26:32.936781+00:00</updated><author><name>AlanDecode</name><email>815918091@qq.com</email></author><content>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
 &lt;h3&gt;L3 Heading&lt;/h3&gt;
 &lt;h4&gt;L4 Heading&lt;/h4&gt;
 &lt;h5&gt;L5 Heading&lt;/h5&gt;
@@ -78,7 +78,7 @@
 &lt;/table&gt;
 &lt;h2&gt;Link Card&lt;/h2&gt;
 &lt;div class="links"&gt;
-&lt;a style="display:block" target="_blank" href="https://www.imalan.cn" class="board-item"&gt;                 &lt;div class="board-thumb"&gt;&lt;img src="https://secure.gravatar.com/avatar/1741a6eef5c824899e347e4afcbaa75d?s=200&amp;r=G&amp;d="&gt;&lt;/div&gt;                 &lt;div class="board-title"&gt;AlanDecode&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;hr&gt;&lt;div class="footnotes"&gt;&lt;ol&gt;&lt;li id="fn_1"&gt;Home page for AlanDecode &lt;a no-style href="#fn_ref_1"&gt;↩&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</content><link href="/archives/typography/" rel="alternate"/><published>2019-12-18T16:50:00+08:06</published></entry><entry><id>/archives/grammar-parser-implementation/</id><title>C++实现算术表达式的语法编译程序</title><updated>2020-11-27T13:22:59.056625+00:00</updated><author><name>卡咪</name><email>815918091@qq.com</email></author><content>&lt;p&gt;本文的前提：&lt;/p&gt;
+&lt;a style="display:block" target="_blank" href="https://www.imalan.cn" class="board-item"&gt;                 &lt;div class="board-thumb"&gt;&lt;img src="https://secure.gravatar.com/avatar/1741a6eef5c824899e347e4afcbaa75d?s=200&amp;r=G&amp;d="&gt;&lt;/div&gt;                 &lt;div class="board-title"&gt;AlanDecode&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;hr&gt;&lt;div class="footnotes"&gt;&lt;ol&gt;&lt;li id="fn_1"&gt;Home page for AlanDecode &lt;a no-style href="#fn_ref_1"&gt;↩&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</content><link href="/archives/typography/" rel="alternate"/><published>2019-12-18T16:50:00+08:06</published></entry><entry><id>/archives/grammar-parser-implementation/</id><title>C++实现算术表达式的语法编译程序</title><updated>2020-11-27T13:26:32.936713+00:00</updated><author><name>卡咪</name><email>815918091@qq.com</email></author><content>&lt;p&gt;本文的前提：&lt;/p&gt;
 &lt;p&gt;编写语法分析程序，实现对算术表达式的语法分析。要求所分析算数表达式由如下的文法产生&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;E-&amp;gt;E+T | E-T | T&lt;/p&gt;
 &lt;p&gt;T-&amp;gt;T*F | T/F | F&lt;/p&gt;
@@ -292,8 +292,6 @@
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;12&lt;/td&gt;
@@ -305,8 +303,6 @@
 &lt;td&gt;r2&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;r2&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -324,8 +320,6 @@
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;14&lt;/td&gt;
@@ -337,8 +331,6 @@
 &lt;td&gt;r5&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;r5&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -356,8 +348,6 @@
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -369,14 +359,25 @@
 &lt;p&gt;repeat  forever   begin&lt;/p&gt;
 &lt;p&gt;令S是栈顶状态，a是ip所指向的符号；&lt;/p&gt;
 &lt;p&gt;if action[S，a]=shift S’  then  begin&lt;/p&gt;
-&lt;p&gt;把a和S’依次入栈；&lt;/p&gt;
-&lt;p&gt;推进ip，使它指向下一个输入符号&lt;/p&gt;
-&lt;p&gt;end&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;把a和S’依次入栈；
+
+推进ip，使它指向下一个输入符号
+
+end
+
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;else if action[S，a]=reduce by A→β  then  begin&lt;/p&gt;
-&lt;p&gt;从栈顶弹出2*|β|个符号；&lt;/p&gt;
-&lt;p&gt;令S’是现在的栈顶状态，把A和goto[S’，A]入栈；&lt;/p&gt;
-&lt;p&gt;输出产生式A→β&lt;/p&gt;
-&lt;p&gt;end&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;从栈顶弹出2*|β|个符号；
+
+令S’是现在的栈顶状态，把A和goto[S’，A]入栈；
+
+输出产生式A→β
+
+end
+
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;else if action[S，a]=accept  then  return&lt;/p&gt;
 &lt;p&gt;else  error()&lt;/p&gt;
 &lt;p&gt;end.&lt;/p&gt;
@@ -527,11 +528,12 @@
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;至此，分析完成。&lt;/p&gt;
+&lt;h2&gt;测试&lt;/h2&gt;
 &lt;p&gt;输入几个算术表达式，来测试程序：&lt;/p&gt;
 &lt;div class="photos"&gt;
-&lt;figure&gt;&lt;img data-width="-1" data-height="-1" src="./images/output1" alt="" /&gt;&lt;/figure&gt;
-&lt;figure&gt;&lt;img data-width="-1" data-height="-1" src="./images/output2" alt="输入合法的表达式之后程序的输出" /&gt;&lt;figcaption&gt;输入合法的表达式之后程序的输出&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;figure&gt;&lt;img data-width="-1" data-height="-1" src="./images/output3" alt="" /&gt;&lt;/figure&gt;
-&lt;figure&gt;&lt;img data-width="-1" data-height="-1" src="./images/output4" alt="输入非法的表达式之后程序的输出" /&gt;&lt;figcaption&gt;输入非法的表达式之后程序的输出&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;&lt;p&gt;注意：这里使用了C++提供的&lt;code&gt;setw()&lt;/code&gt;函数来进行格式化输出。该函数被包含在&lt;code&gt;&amp;lt;iomanip&amp;gt;&lt;/code&gt;库中。&lt;/p&gt;
+&lt;figure&gt;&lt;img data-width="864" data-height="633" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/a24ffef0641ba18c73619e1a7e6d91f6.png" alt="" /&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;img data-width="864" data-height="664" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/02f7f61e4c7378742a84125b63c3c077.png" alt="输入合法的表达式之后程序的输出" /&gt;&lt;figcaption&gt;输入合法的表达式之后程序的输出&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;img data-width="864" data-height="639" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/3c695da8d51ad678f7e786c09e61913f.png" alt="" /&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;img data-width="864" data-height="212" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/d6d55c2f1253130ce716c4d76975bb60.png" alt="输入非法的表达式之后程序的输出" /&gt;&lt;figcaption&gt;输入非法的表达式之后程序的输出&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;&lt;p&gt;注意：这里使用了C++提供的&lt;code&gt;setw()&lt;/code&gt;函数来进行格式化输出。该函数被包含在&lt;code&gt;&amp;lt;iomanip&amp;gt;&lt;/code&gt;库中。&lt;/p&gt;
 &lt;p&gt;其使用方法可以参考此文章：&lt;a href="https://blog.csdn.net/qq_21808961/article/details/78234780"&gt;C/C++ 输出间隔控制&lt;/a&gt;&lt;/p&gt;
 </content><link href="/archives/grammar-parser-implementation/" rel="alternate"/><published>2020-11-27T20:34:00+08:06</published></entry></feed>
