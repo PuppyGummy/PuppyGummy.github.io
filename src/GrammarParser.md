@@ -23,7 +23,7 @@ excerpt: a simple grammar parser implemented by c++
 >
 > F-> (E) | num
 
-实验要求：在对输人的算术表达式进行分析的过程中，依次输出所采用的产生式
+实验要求：在对输入的算术表达式进行分析的过程中，依次输出所采用的产生式
 
 编写算法分析程序实现自底向上的分析，要求如下
 
@@ -41,7 +41,7 @@ excerpt: a simple grammar parser implemented by c++
 > 
 > (1) E->E+T
 > 
->(2) E->E-T
+> (2) E->E-T
 >
 > (3) E->T
 >
@@ -73,7 +73,7 @@ excerpt: a simple grammar parser implemented by c++
 --|--|--|--|--|--|--|--|--|--|--|--
 0 | | | | | s4 | | s5 | | 1 | 2 | 3
 1 | s6 | s7 | | | | | | acc | | |
-2 | r3 | r3 | s8 | s9 | | r3 | r3 | | |
+2 | r3 | r3 | s8 | s9 | | r3 | | r3 | |
 3 | r6 | r6 | r6 | r6 | | r6 | | r6 | | |
 4 | | | | | s4 | | s5 | | 10 | 2 | 3
 5 | r8 | r8 | r8 | r8 | | r8 | | r8 | | |
