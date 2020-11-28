@@ -57,7 +57,7 @@ excerpt: a simple grammar parser implemented by c++
 
 构造如下的识别该文法所有活前缀的DFA：
 
-![画出的DFA](./images/DFA.png)
+![画出的DFA](./images/DFA2.png)
 
 同时写出相应的FOLLOW集：
 
