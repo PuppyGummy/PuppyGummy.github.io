@@ -13,6 +13,12 @@ enable_jsdelivr = {
     "enabled": True,
     "repo": "PuppyGummy/PuppyGummy.github.io@gh-pages"
 }
+valine = {
+    "enable": True,
+    "el": '#vcomments',
+    "appId": "hR6lTjGR00a9wyvOOitemPyd-gzGzoHsz",
+    "appKey": "tQvJKfG9jd1bfq4wvOKG48px",
+}
 
 # 站点设置
 site_name = "Kami的Blog"
