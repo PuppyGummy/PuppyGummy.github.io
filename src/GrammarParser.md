@@ -17,7 +17,9 @@ excerpt: a simple grammar parser implemented by c++
 编写语法分析程序，实现对算术表达式的语法分析。要求所分析算数表达式由如下的文法产生
 
 > E->E+T | E-T | T  
+> 
 > T->T\*F | T/F | F  
+> 
 > F-> (E) | num
 
 实验要求：在对输入的算术表达式进行分析的过程中，依次输出所采用的产生式  
@@ -31,20 +33,30 @@ excerpt: a simple grammar parser implemented by c++
 首先，对于给出的文法，写出其拓广文法：
 
 > (0) E'->E  
+> 
 > (1) E->E+T  
+> 
 > (2) E->E-T  
+> 
 > (3) E->T  
+> 
 > (4) T->T\*F  
+> 
 > (5) T->T\/F  
+> 
 > (6) T->F  
+> 
 > (7) F-> (E)  
+> 
 > (8) F->num
 
 构造如下的识别该文法所有活前缀的DFA：  
 ![画出的DFA](./images/DFA2.png)  
 同时写出相应的FOLLOW集：  
 > follow(E') = { $ }  
+> 
 > follow(E) = { +, -, ), $ }  
+> 
 > follow(T) = follow(F) = { *, /, +, -, ), $ }
 
 然后，根据构造的DFA和FOLLOW集，可以填出对应的LR分析表：
@@ -68,9 +80,10 @@ excerpt: a simple grammar parser implemented by c++
 14 | r5	| r5 | r5 | r5 | | r5 | | r5 | | |
 15 | r7	| r7 | r7 | r7 | | r7 | | r7 | | |
 
-最后实现算法4.3，其伪代码如下：  
+最后实现算法4.3，其伪代码如下： 
+```nohighlight
 > 
-> ```nohighlight
+> nohighlight
 > 输入：文法G的一张分析表和一个输入符号串ω  
 > 输出：若ω∈L(G)，得到ω的自底向上的分析，否则报错  
 > 方法：开始时，初始状态S0在栈顶，ω$在输入缓冲器中  
@@ -90,8 +103,9 @@ excerpt: a simple grammar parser implemented by c++
 >    else if action[S，a]=accept  then  return  
 >    else  error()  
 > end.  
-> ```
 > 
+> 
+```
 
 ## 实现
 
