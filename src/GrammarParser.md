@@ -13,58 +13,40 @@ tags:
 excerpt: a simple grammar parser implemented by c++
 ---
 
-本文的前提：
-
+本文的前提：  
 编写语法分析程序，实现对算术表达式的语法分析。要求所分析算数表达式由如下的文法产生
 
 > E->E+T | E-T | T
 >
-> T->T*F | T/F | F
+> T->T\*F | T/F | F
 >
 > F-> (E) | num
 
-实验要求：在对输入的算术表达式进行分析的过程中，依次输出所采用的产生式
-
-编写算法分析程序实现自底向上的分析，要求如下
-
-(1)构造识别该文法所有活前缀的DFA
-
-(2)构造该文法的LR分析表
-
-(3)编程实现算法4.3，构造LR分析程序
+实验要求：在对输入的算术表达式进行分析的过程中，依次输出所采用的产生式  
+编写算法分析程序实现自底向上的分析，要求如下  
+(1)构造识别该文法所有活前缀的DFA  
+(2)构造该文法的LR分析表  
+(3)编程实现算法4.3，构造LR分析程序  
 
 ## 分析
 
 首先，对于给出的文法，写出其拓广文法：
 
-> (0) E'->E
-> 
-> (1) E->E+T
-> 
-> (2) E->E-T
->
-> (3) E->T
->
-> (4) T->T*F
->
-> (5) T->T/F
->
-> (6) T->F
->
-> (7) F-> (E)
->
+> (0) E'->E  
+> (1) E->E+T  
+> (2) E->E-T  
+> (3) E->T  
+> (4) T->T\*F  
+> (5) T->T\/F  
+> (6) T->F  
+> (7) F-> (E)  
 > (8) F->num
 
-构造如下的识别该文法所有活前缀的DFA：
-
-![画出的DFA](./images/DFA2.png)
-
-同时写出相应的FOLLOW集：
-
-> follow(E') = { $ }
-> 
-> follow(E) = { +, -, ), $ }
->
+构造如下的识别该文法所有活前缀的DFA：  
+![画出的DFA](./images/DFA2.png)  
+同时写出相应的FOLLOW集：  
+> follow(E') = { $ }  
+> follow(E) = { +, -, ), $ }  
 > follow(T) = follow(F) = { *, /, +, -, ), $ }
 
 然后，根据构造的DFA和FOLLOW集，可以填出对应的LR分析表：
@@ -88,49 +70,32 @@ excerpt: a simple grammar parser implemented by c++
 14 | r5	| r5 | r5 | r5 | | r5 | | r5 | | |
 15 | r7	| r7 | r7 | r7 | | r7 | | r7 | | |
 
-最后实现算法4.3，其伪代码如下：
+最后实现算法4.3，其伪代码如下：  
+```nohighlight
+输入：文法G的一张分析表和一个输入符号串ω  
+输出：若ω∈L(G)，得到ω的自底向上的分析，否则报错  
+方法：开始时，初始状态S0在栈顶，ω$在输入缓冲器中  
 
-输入：文法G的一张分析表和一个输入符号串ω
-
-输出：若ω∈L(G)，得到ω的自底向上的分析，否则报错
-
-方法：开始时，初始状态S0在栈顶，ω$在输入缓冲器中
-
-`置ip指向ω$的第一个符号；`
-    
-`repeat  forever   begin`
-    
-`令S是栈顶状态，a是ip所指向的符号；`
-    
-`if action[S，a]=shift S’  then  begin`
-    
-`   把a和S’依次入栈；`
-        
-`   推进ip，使它指向下一个输入符号`
-        
-`   end`
-        
-`else if action[S，a]=reduce by A→β  then  begin`
-    
-`   从栈顶弹出2*|β|个符号；`
-        
-`   令S’是现在的栈顶状态，把A和goto[S’，A]入栈；`
-        
-`   输出产生式A→β`
-        
-`   end`
-        
-`else if action[S，a]=accept  then  return`
-    
-`else  error()`
-    
-end.
-
+置ip指向ω$的第一个符号；  
+   repeat  forever   begin  
+   令S是栈顶状态，a是ip所指向的符号；  
+   if action[S，a]=shift S’  then  begin  
+      把a和S’依次入栈；  
+      推进ip，使它指向下一个输入符号  
+      end  
+   else if action[S，a]=reduce by A→β  then  begin  
+      从栈顶弹出2*|β|个符号；      
+      令S’是现在的栈顶状态，把A和goto[S’，A]入栈；  
+      输出产生式A→β  
+      end  
+   else if action[S，a]=accept  then  return  
+   else  error()  
+end.  
+```
 
 ## 实现
 
-在具体的实现中，我定义了两个结构体，分别用来表示产生式和action表。
-
+在具体的实现中，我定义了两个结构体，分别用来表示产生式和action表。  
 ```cpp
 struct generator{
     char left; //产生式左边的符号，即非终结符
@@ -142,9 +107,7 @@ struct action{
     int val; //如果para为's'，则val代表应该转移的状态；如果para为'r'，则val代表规约所使用的产生式；val=-1时代表NULL
 };
 ```
-
-然后将action表和goto表初始化如下
-
+然后将action表和goto表初始化如下  
 ```cpp
 action action[16][8]={
         {{'-',-1},{'-',-1},{'-',-1},{'-',-1},{'s',4},{'-',-1},{'s',5},{'-',-1}},
@@ -184,9 +147,7 @@ int go_to[16][3]={
         {0,0,0}
 };
 ```
-
-然后定义`init()`函数，将产生式初始化如下：
-
+然后定义`init()`函数，将产生式初始化如下：  
 ```cpp
 void init() {
     E.left = 'E';
@@ -202,9 +163,7 @@ void init() {
     F.right.push_back("num"); //产生式编号为8
 }
 ```
-
-同时定义一个`convert()`函数，其作用是接受一个字符，返回该字符在LR分析表中所对应的列：
-
+同时定义一个`convert()`函数，其作用是接受一个字符，返回该字符在LR分析表中所对应的列：  
 ```cpp
 int convert(char ch){
     switch(ch){
@@ -220,26 +179,20 @@ int convert(char ch){
     }
 }
 ```
-
-在主体的`analyze()`函数中，定义三个stack
-
+在主体的`analyze()`函数中，定义三个stack  
 ```cpp
     stack<int> state; //状态栈
     stack<string> symbol; //符号栈
     stack<char> input; //输入缓冲区
 ```
-
-然后开始循环分析输入的字符串，使用bool变量来控制循环的结束
-
+然后开始循环分析输入的字符串，使用bool变量来控制循环的结束  
 ```cpp
 bool flag = false; //标志分析是否结束
 while (!flag) { //当分析未结束时
 ......
 }
 ```
-
-对于字符串中的数字，作如下处理：
-
+对于字符串中的数字，作如下处理：  
 ```cpp
         char ch = input.top(); //获取输入缓冲区的栈顶符号
         if (ch >= '0' && ch <= '9') {
@@ -253,9 +206,7 @@ while (!flag) { //当分析未结束时
             ch = 'i'; //将类型标记为数字类型
         }
 ```
-
-然后将`ch`传给`convert()`函数，获得action表对应的列，通过查action表即可得知当前动作：
-
+然后将`ch`传给`convert()`函数，获得action表对应的列，通过查action表即可得知当前动作：  
 ```cpp
 Int col = convert(ch); //判断栈顶符号在action表中的哪一列
 int row = state.top(); //判断当前所处的状态（在action表中的哪一行）
@@ -265,9 +216,7 @@ if (col == -1) { //如果无该符号，说明输入的表达式不合法，输�
 }
 struct action a = action[row][col]; //查action表获取当前动作
 ```
-
-对于获得到的`action a`，其属性`a.para`有四种结果，分别对应四种操作：
-
+对于获得到的`action a`，其属性`a.para`有四种结果，分别对应四种操作：  
 ```cpp
 if (a.para == 's') { //如果是移进
 ......
@@ -300,17 +249,16 @@ state.push(go_to[state.top()][0]);
 }
 ```
 
-至此，分析完成。
+至此，分析完成。  
 
 ## 测试
 
-输入几个算术表达式，来测试程序：
+输入几个算术表达式，来测试程序：  
 
 ![](./images/output1.png)
 ![输入合法的表达式之后程序的输出](./images/output2.png)
 ![](./images/output3.png)
 ![输入非法的表达式之后程序的输出](./images/output4.png)
 
-注意：这里使用了C++提供的`setw()`函数来进行格式化输出。该函数被包含在`<iomanip>`库中。
-
+注意：这里使用了C++提供的`setw()`函数来进行格式化输出。该函数被包含在`<iomanip>`库中。  
 其使用方法可以参考此文章：[C/C++ 输出间隔控制](https://blog.csdn.net/qq_21808961/article/details/78234780)
