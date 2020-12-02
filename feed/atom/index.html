@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>Kami的Blog</title><updated>2020-12-02T04:47:37.974051+08:06</updated><author><name>卡咪</name><email>815918091@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/icon.png</logo><subtitle>能吃是福</subtitle><entry><id>/archives/typography/</id><title>Hello World!</title><updated>2020-12-02T04:47:37.974181+00:00</updated><author><name>AlanDecode</name><email>815918091@qq.com</email></author><content>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>Kami的Blog</title><updated>2020-12-02T04:50:19.026249+08:06</updated><author><name>卡咪</name><email>815918091@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/icon.png</logo><subtitle>能吃是福</subtitle><entry><id>/archives/typography/</id><title>Hello World!</title><updated>2020-12-02T04:50:19.026395+00:00</updated><author><name>AlanDecode</name><email>815918091@qq.com</email></author><content>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
 &lt;h3&gt;L3 Heading&lt;/h3&gt;
 &lt;h4&gt;L4 Heading&lt;/h4&gt;
 &lt;h5&gt;L5 Heading&lt;/h5&gt;
@@ -78,7 +78,7 @@
 &lt;/table&gt;
 &lt;h2&gt;Link Card&lt;/h2&gt;
 &lt;div class="links"&gt;
-&lt;a style="display:block" target="_blank" href="https://www.imalan.cn" class="board-item"&gt;                 &lt;div class="board-thumb"&gt;&lt;img src="https://secure.gravatar.com/avatar/1741a6eef5c824899e347e4afcbaa75d?s=200&amp;r=G&amp;d="&gt;&lt;/div&gt;                 &lt;div class="board-title"&gt;AlanDecode&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;hr&gt;&lt;div class="footnotes"&gt;&lt;ol&gt;&lt;li id="fn_1"&gt;Home page for AlanDecode &lt;a no-style href="#fn_ref_1"&gt;↩&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</content><link href="/archives/typography/" rel="alternate"/><published>2019-12-18T16:50:00+08:06</published></entry><entry><id>/archives/grammar-parser-implementation/</id><title>C++实现算术表达式的语法分析程序</title><updated>2020-12-02T04:47:37.974127+00:00</updated><author><name>卡咪</name><email>815918091@qq.com</email></author><content>&lt;p&gt;本文的前提：&lt;br&gt;
+&lt;a style="display:block" target="_blank" href="https://www.imalan.cn" class="board-item"&gt;                 &lt;div class="board-thumb"&gt;&lt;img src="https://secure.gravatar.com/avatar/1741a6eef5c824899e347e4afcbaa75d?s=200&amp;r=G&amp;d="&gt;&lt;/div&gt;                 &lt;div class="board-title"&gt;AlanDecode&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;hr&gt;&lt;div class="footnotes"&gt;&lt;ol&gt;&lt;li id="fn_1"&gt;Home page for AlanDecode &lt;a no-style href="#fn_ref_1"&gt;↩&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</content><link href="/archives/typography/" rel="alternate"/><published>2019-12-18T16:50:00+08:06</published></entry><entry><id>/archives/grammar-parser-implementation/</id><title>C++实现算术表达式的语法分析程序</title><updated>2020-12-02T04:50:19.026329+00:00</updated><author><name>卡咪</name><email>815918091@qq.com</email></author><content>&lt;p&gt;本文的前提：&lt;br&gt;
 编写语法分析程序，实现对算术表达式的语法分析。要求所分析算数表达式由如下的文法产生&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;E-&amp;gt;E+T | E-T | T&lt;/p&gt;
 &lt;p&gt;T-&amp;gt;T*F | T/F | F&lt;/p&gt;
@@ -352,30 +352,25 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;最后实现算法4.3，其伪代码如下：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; 
-&amp;gt; nohighlight
-&amp;gt; 输入：文法G的一张分析表和一个输入符号串ω  
-&amp;gt; 输出：若ω∈L(G)，得到ω的自底向上的分析，否则报错  
-&amp;gt; 方法：开始时，初始状态S0在栈顶，ω$在输入缓冲器中  
-&amp;gt; 
-&amp;gt; 置ip指向ω$的第一个符号；  
-&amp;gt;    repeat  forever   begin  
-&amp;gt;    令S是栈顶状态，a是ip所指向的符号；  
-&amp;gt;    if action[S，a]=shift S’  then  begin  
-&amp;gt;       把a和S’依次入栈；  
-&amp;gt;       推进ip，使它指向下一个输入符号  
-&amp;gt;       end  
-&amp;gt;    else if action[S，a]=reduce by A→β  then  begin  
-&amp;gt;       从栈顶弹出2*|β|个符号；      
-&amp;gt;       令S’是现在的栈顶状态，把A和goto[S’，A]入栈；  
-&amp;gt;       输出产生式A→β  
-&amp;gt;       end  
-&amp;gt;    else if action[S，a]=accept  then  return  
-&amp;gt;    else  error()  
-&amp;gt; end.  
-&amp;gt; 
-&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;&lt;p&gt;输入：文法G的一张分析表和一个输入符号串ω&lt;br&gt;
+输出：若ω∈L(G)，得到ω的自底向上的分析，否则报错&lt;br&gt;
+方法：开始时，初始状态S0在栈顶，ω$在输入缓冲器中&lt;/p&gt;
+&lt;p&gt;置ip指向ω$的第一个符号；&lt;br&gt;
+   repeat  forever   begin&lt;br&gt;
+   令S是栈顶状态，a是ip所指向的符号；&lt;br&gt;
+   if action[S，a]=shift S’  then  begin&lt;br&gt;
+      把a和S’依次入栈；&lt;br&gt;
+      推进ip，使它指向下一个输入符号&lt;br&gt;
+      end&lt;br&gt;
+   else if action[S，a]=reduce by A→β  then  begin&lt;br&gt;
+      从栈顶弹出2*|β|个符号；&lt;br&gt;
+      令S’是现在的栈顶状态，把A和goto[S’，A]入栈；&lt;br&gt;
+      输出产生式A→β&lt;br&gt;
+      end&lt;br&gt;
+   else if action[S，a]=accept  then  return&lt;br&gt;
+   else  error()&lt;br&gt;
+end.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2&gt;实现&lt;/h2&gt;
 &lt;p&gt;在具体的实现中，我定义了两个结构体，分别用来表示产生式和action表。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="nc"&gt;generator&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
