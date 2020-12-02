@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/523937dc6743cf0a31511314d96e63a3.json"
+            api: "https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/60319ff42ebd8d360a041a73851b3846.json"
         }
     </script>
     <script>
@@ -128,35 +128,35 @@
                 
             </span>
         </p>
-        <article class="yue"><p>本文的前提：</p>
-<p>编写语法分析程序，实现对算术表达式的语法分析。要求所分析算数表达式由如下的文法产生</p>
+        <article class="yue"><p>本文的前提：<br>
+编写语法分析程序，实现对算术表达式的语法分析。要求所分析算数表达式由如下的文法产生</p>
 <blockquote><p>E-&gt;E+T | E-T | T</p>
 <p>T-&gt;T*F | T/F | F</p>
 <p>F-&gt; (E) | num</p>
 </blockquote>
-<p>实验要求：在对输入的算术表达式进行分析的过程中，依次输出所采用的产生式</p>
-<p>编写算法分析程序实现自底向上的分析，要求如下</p>
-<p>(1)构造识别该文法所有活前缀的DFA</p>
-<p>(2)构造该文法的LR分析表</p>
-<p>(3)编程实现算法4.3，构造LR分析程序</p>
+<p>实验要求：在对输入的算术表达式进行分析的过程中，依次输出所采用的产生式<br>
+编写算法分析程序实现自底向上的分析，要求如下<br>
+(1)构造识别该文法所有活前缀的DFA<br>
+(2)构造该文法的LR分析表<br>
+(3)编程实现算法4.3，构造LR分析程序</p>
 <h2>分析</h2>
 <p>首先，对于给出的文法，写出其拓广文法：</p>
-<blockquote><p>(0) E'-&gt;E</p>
-<p>(1) E-&gt;E+T</p>
-<p>(2) E-&gt;E-T</p>
-<p>(3) E-&gt;T</p>
-<p>(4) T-&gt;T*F</p>
-<p>(5) T-&gt;T/F</p>
-<p>(6) T-&gt;F</p>
-<p>(7) F-&gt; (E)</p>
-<p>(8) F-&gt;num</p>
+<blockquote><p>(0) E'-&gt;E<br>
+(1) E-&gt;E+T<br>
+(2) E-&gt;E-T<br>
+(3) E-&gt;T<br>
+(4) T-&gt;T*F<br>
+(5) T-&gt;T\/F<br>
+(6) T-&gt;F<br>
+(7) F-&gt; (E)<br>
+(8) F-&gt;num</p>
 </blockquote>
-<p>构造如下的识别该文法所有活前缀的DFA：</p>
-<p><figure><img data-width="1942" data-height="1774" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/e11b9427c74a17497912711845e6d576.png" alt="画出的DFA" /><figcaption>画出的DFA</figcaption></figure></p>
-<p>同时写出相应的FOLLOW集：</p>
-<blockquote><p>follow(E') = { $ }</p>
-<p>follow(E) = { +, -, ), $ }</p>
-<p>follow(T) = follow(F) = { *, /, +, -, ), $ }</p>
+<p>构造如下的识别该文法所有活前缀的DFA：<br>
+<figure><img data-width="1942" data-height="1774" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/e11b9427c74a17497912711845e6d576.png" alt="画出的DFA" /><figcaption>画出的DFA</figcaption></figure><br>
+同时写出相应的FOLLOW集：</p>
+<blockquote><p>follow(E') = { $ }<br>
+follow(E) = { +, -, ), $ }<br>
+follow(T) = follow(F) = { *, /, +, -, ), $ }</p>
 </blockquote>
 <p>然后，根据构造的DFA和FOLLOW集，可以填出对应的LR分析表：</p>
 <table>
@@ -402,24 +402,26 @@
 </tbody>
 </table>
 <p>最后实现算法4.3，其伪代码如下：</p>
-<p>输入：文法G的一张分析表和一个输入符号串ω</p>
-<p>输出：若ω∈L(G)，得到ω的自底向上的分析，否则报错</p>
-<p>方法：开始时，初始状态S0在栈顶，ω$在输入缓冲器中</p>
-<p><code>置ip指向ω$的第一个符号；</code></p>
-<p><code>repeat  forever   begin</code></p>
-<p><code>令S是栈顶状态，a是ip所指向的符号；</code></p>
-<p><code>if action[S，a]=shift S’  then  begin</code></p>
-<p><code>把a和S’依次入栈；</code></p>
-<p><code>推进ip，使它指向下一个输入符号</code></p>
-<p><code>end</code></p>
-<p><code>else if action[S，a]=reduce by A→β  then  begin</code></p>
-<p><code>从栈顶弹出2*|β|个符号；</code></p>
-<p><code>令S’是现在的栈顶状态，把A和goto[S’，A]入栈；</code></p>
-<p><code>输出产生式A→β</code></p>
-<p><code>end</code></p>
-<p><code>else if action[S，a]=accept  then  return</code></p>
-<p><code>else  error()</code></p>
-<p>end.</p>
+
+<pre><code>输入：文法G的一张分析表和一个输入符号串ω  
+输出：若ω∈L(G)，得到ω的自底向上的分析，否则报错  
+方法：开始时，初始状态S0在栈顶，ω$在输入缓冲器中  
+
+置ip指向ω$的第一个符号；  
+   repeat  forever   begin  
+   令S是栈顶状态，a是ip所指向的符号；  
+   if action[S，a]=shift S’  then  begin  
+      把a和S’依次入栈；  
+      推进ip，使它指向下一个输入符号  
+      end  
+   else if action[S，a]=reduce by A→β  then  begin  
+      从栈顶弹出2*|β|个符号；      
+      令S’是现在的栈顶状态，把A和goto[S’，A]入栈；  
+      输出产生式A→β  
+      end  
+   else if action[S，a]=accept  then  return  
+   else  error()  
+end.</code></pre>
 <h2>实现</h2>
 <p>在具体的实现中，我定义了两个结构体，分别用来表示产生式和action表。</p>
 <div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">generator</span><span class="p">{</span>
@@ -572,8 +574,8 @@
 <figure><img data-width="864" data-height="664" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/02f7f61e4c7378742a84125b63c3c077.png" alt="输入合法的表达式之后程序的输出" /><figcaption>输入合法的表达式之后程序的输出</figcaption></figure>
 <figure><img data-width="864" data-height="639" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/3c695da8d51ad678f7e786c09e61913f.png" alt="" /></figure>
 <figure><img data-width="864" data-height="212" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/d6d55c2f1253130ce716c4d76975bb60.png" alt="输入非法的表达式之后程序的输出" /><figcaption>输入非法的表达式之后程序的输出</figcaption></figure></p>
-<p>注意：这里使用了C++提供的<code>setw()</code>函数来进行格式化输出。该函数被包含在<code>&lt;iomanip&gt;</code>库中。</p>
-<p>其使用方法可以参考此文章：<a href="https://blog.csdn.net/qq_21808961/article/details/78234780">C/C++ 输出间隔控制</a></p>
+<p>注意：这里使用了C++提供的<code>setw()</code>函数来进行格式化输出。该函数被包含在<code>&lt;iomanip&gt;</code>库中。<br>
+其使用方法可以参考此文章：<a href="https://blog.csdn.net/qq_21808961/article/details/78234780">C/C++ 输出间隔控制</a></p>
 </article>
     </section>
 

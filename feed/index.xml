@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Kami的Blog</title><link>/</link><description>能吃是福</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/icon.png</url><title>Kami的Blog</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Tue, 01 Dec 2020 16:54:27 +0806</lastBuildDate><pubDate>Tue, 01 Dec 2020 16:54:27 +0806</pubDate><item><title>Hello World!</title><link>/archives/typography/</link><description>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Kami的Blog</title><link>/</link><description>能吃是福</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/icon.png</url><title>Kami的Blog</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Wed, 02 Dec 2020 04:41:01 +0806</lastBuildDate><pubDate>Wed, 02 Dec 2020 04:41:01 +0806</pubDate><item><title>Hello World!</title><link>/archives/typography/</link><description>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
 &lt;h3&gt;L3 Heading&lt;/h3&gt;
 &lt;h4&gt;L4 Heading&lt;/h4&gt;
 &lt;h5&gt;L5 Heading&lt;/h5&gt;
@@ -78,35 +78,35 @@
 &lt;/table&gt;
 &lt;h2&gt;Link Card&lt;/h2&gt;
 &lt;div class="links"&gt;
-&lt;a style="display:block" target="_blank" href="https://www.imalan.cn" class="board-item"&gt;                 &lt;div class="board-thumb"&gt;&lt;img src="https://secure.gravatar.com/avatar/1741a6eef5c824899e347e4afcbaa75d?s=200&amp;r=G&amp;d="&gt;&lt;/div&gt;                 &lt;div class="board-title"&gt;AlanDecode&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;hr&gt;&lt;div class="footnotes"&gt;&lt;ol&gt;&lt;li id="fn_1"&gt;Home page for AlanDecode &lt;a no-style href="#fn_ref_1"&gt;↩&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</description><author>815918091@qq.com (AlanDecode)</author><guid isPermaLink="true">/archives/typography/</guid><pubDate>Wed, 18 Dec 2019 16:50:00 +0806</pubDate></item><item><title>C++实现算术表达式的语法分析程序</title><link>/archives/grammar-parser-implementation/</link><description>&lt;p&gt;本文的前提：&lt;/p&gt;
-&lt;p&gt;编写语法分析程序，实现对算术表达式的语法分析。要求所分析算数表达式由如下的文法产生&lt;/p&gt;
+&lt;a style="display:block" target="_blank" href="https://www.imalan.cn" class="board-item"&gt;                 &lt;div class="board-thumb"&gt;&lt;img src="https://secure.gravatar.com/avatar/1741a6eef5c824899e347e4afcbaa75d?s=200&amp;r=G&amp;d="&gt;&lt;/div&gt;                 &lt;div class="board-title"&gt;AlanDecode&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;hr&gt;&lt;div class="footnotes"&gt;&lt;ol&gt;&lt;li id="fn_1"&gt;Home page for AlanDecode &lt;a no-style href="#fn_ref_1"&gt;↩&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</description><author>815918091@qq.com (AlanDecode)</author><guid isPermaLink="true">/archives/typography/</guid><pubDate>Wed, 18 Dec 2019 16:50:00 +0806</pubDate></item><item><title>C++实现算术表达式的语法分析程序</title><link>/archives/grammar-parser-implementation/</link><description>&lt;p&gt;本文的前提：&lt;br&gt;
+编写语法分析程序，实现对算术表达式的语法分析。要求所分析算数表达式由如下的文法产生&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;E-&amp;gt;E+T | E-T | T&lt;/p&gt;
 &lt;p&gt;T-&amp;gt;T*F | T/F | F&lt;/p&gt;
 &lt;p&gt;F-&amp;gt; (E) | num&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;实验要求：在对输入的算术表达式进行分析的过程中，依次输出所采用的产生式&lt;/p&gt;
-&lt;p&gt;编写算法分析程序实现自底向上的分析，要求如下&lt;/p&gt;
-&lt;p&gt;(1)构造识别该文法所有活前缀的DFA&lt;/p&gt;
-&lt;p&gt;(2)构造该文法的LR分析表&lt;/p&gt;
-&lt;p&gt;(3)编程实现算法4.3，构造LR分析程序&lt;/p&gt;
+&lt;p&gt;实验要求：在对输入的算术表达式进行分析的过程中，依次输出所采用的产生式&lt;br&gt;
+编写算法分析程序实现自底向上的分析，要求如下&lt;br&gt;
+(1)构造识别该文法所有活前缀的DFA&lt;br&gt;
+(2)构造该文法的LR分析表&lt;br&gt;
+(3)编程实现算法4.3，构造LR分析程序&lt;/p&gt;
 &lt;h2&gt;分析&lt;/h2&gt;
 &lt;p&gt;首先，对于给出的文法，写出其拓广文法：&lt;/p&gt;
-&lt;blockquote&gt;&lt;p&gt;(0) E'-&amp;gt;E&lt;/p&gt;
-&lt;p&gt;(1) E-&amp;gt;E+T&lt;/p&gt;
-&lt;p&gt;(2) E-&amp;gt;E-T&lt;/p&gt;
-&lt;p&gt;(3) E-&amp;gt;T&lt;/p&gt;
-&lt;p&gt;(4) T-&amp;gt;T*F&lt;/p&gt;
-&lt;p&gt;(5) T-&amp;gt;T/F&lt;/p&gt;
-&lt;p&gt;(6) T-&amp;gt;F&lt;/p&gt;
-&lt;p&gt;(7) F-&amp;gt; (E)&lt;/p&gt;
-&lt;p&gt;(8) F-&amp;gt;num&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;(0) E'-&amp;gt;E&lt;br&gt;
+(1) E-&amp;gt;E+T&lt;br&gt;
+(2) E-&amp;gt;E-T&lt;br&gt;
+(3) E-&amp;gt;T&lt;br&gt;
+(4) T-&amp;gt;T*F&lt;br&gt;
+(5) T-&amp;gt;T\/F&lt;br&gt;
+(6) T-&amp;gt;F&lt;br&gt;
+(7) F-&amp;gt; (E)&lt;br&gt;
+(8) F-&amp;gt;num&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;构造如下的识别该文法所有活前缀的DFA：&lt;/p&gt;
-&lt;p&gt;&lt;figure&gt;&lt;img data-width="1942" data-height="1774" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/e11b9427c74a17497912711845e6d576.png" alt="画出的DFA" /&gt;&lt;figcaption&gt;画出的DFA&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;同时写出相应的FOLLOW集：&lt;/p&gt;
-&lt;blockquote&gt;&lt;p&gt;follow(E') = { $ }&lt;/p&gt;
-&lt;p&gt;follow(E) = { +, -, ), $ }&lt;/p&gt;
-&lt;p&gt;follow(T) = follow(F) = { *, /, +, -, ), $ }&lt;/p&gt;
+&lt;p&gt;构造如下的识别该文法所有活前缀的DFA：&lt;br&gt;
+&lt;figure&gt;&lt;img data-width="1942" data-height="1774" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/e11b9427c74a17497912711845e6d576.png" alt="画出的DFA" /&gt;&lt;figcaption&gt;画出的DFA&lt;/figcaption&gt;&lt;/figure&gt;&lt;br&gt;
+同时写出相应的FOLLOW集：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;follow(E') = { $ }&lt;br&gt;
+follow(E) = { +, -, ), $ }&lt;br&gt;
+follow(T) = follow(F) = { *, /, +, -, ), $ }&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;然后，根据构造的DFA和FOLLOW集，可以填出对应的LR分析表：&lt;/p&gt;
 &lt;table&gt;
@@ -352,24 +352,26 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;最后实现算法4.3，其伪代码如下：&lt;/p&gt;
-&lt;p&gt;输入：文法G的一张分析表和一个输入符号串ω&lt;/p&gt;
-&lt;p&gt;输出：若ω∈L(G)，得到ω的自底向上的分析，否则报错&lt;/p&gt;
-&lt;p&gt;方法：开始时，初始状态S0在栈顶，ω$在输入缓冲器中&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;置ip指向ω$的第一个符号；&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;repeat  forever   begin&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;令S是栈顶状态，a是ip所指向的符号；&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;if action[S，a]=shift S’  then  begin&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;把a和S’依次入栈；&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;推进ip，使它指向下一个输入符号&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;end&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;else if action[S，a]=reduce by A→β  then  begin&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;从栈顶弹出2*|β|个符号；&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;令S’是现在的栈顶状态，把A和goto[S’，A]入栈；&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;输出产生式A→β&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;end&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;else if action[S，a]=accept  then  return&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;else  error()&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;end.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;输入：文法G的一张分析表和一个输入符号串ω  
+输出：若ω∈L(G)，得到ω的自底向上的分析，否则报错  
+方法：开始时，初始状态S0在栈顶，ω$在输入缓冲器中  
+
+置ip指向ω$的第一个符号；  
+   repeat  forever   begin  
+   令S是栈顶状态，a是ip所指向的符号；  
+   if action[S，a]=shift S’  then  begin  
+      把a和S’依次入栈；  
+      推进ip，使它指向下一个输入符号  
+      end  
+   else if action[S，a]=reduce by A→β  then  begin  
+      从栈顶弹出2*|β|个符号；      
+      令S’是现在的栈顶状态，把A和goto[S’，A]入栈；  
+      输出产生式A→β  
+      end  
+   else if action[S，a]=accept  then  return  
+   else  error()  
+end.&lt;/code&gt;&lt;/pre&gt;
 &lt;h2&gt;实现&lt;/h2&gt;
 &lt;p&gt;在具体的实现中，我定义了两个结构体，分别用来表示产生式和action表。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="nc"&gt;generator&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
@@ -522,6 +524,6 @@
 &lt;figure&gt;&lt;img data-width="864" data-height="664" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/02f7f61e4c7378742a84125b63c3c077.png" alt="输入合法的表达式之后程序的输出" /&gt;&lt;figcaption&gt;输入合法的表达式之后程序的输出&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;figure&gt;&lt;img data-width="864" data-height="639" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/3c695da8d51ad678f7e786c09e61913f.png" alt="" /&gt;&lt;/figure&gt;
 &lt;figure&gt;&lt;img data-width="864" data-height="212" src="https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/archives/assets/d6d55c2f1253130ce716c4d76975bb60.png" alt="输入非法的表达式之后程序的输出" /&gt;&lt;figcaption&gt;输入非法的表达式之后程序的输出&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;注意：这里使用了C++提供的&lt;code&gt;setw()&lt;/code&gt;函数来进行格式化输出。该函数被包含在&lt;code&gt;&amp;lt;iomanip&amp;gt;&lt;/code&gt;库中。&lt;/p&gt;
-&lt;p&gt;其使用方法可以参考此文章：&lt;a href="https://blog.csdn.net/qq_21808961/article/details/78234780"&gt;C/C++ 输出间隔控制&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;注意：这里使用了C++提供的&lt;code&gt;setw()&lt;/code&gt;函数来进行格式化输出。该函数被包含在&lt;code&gt;&amp;lt;iomanip&amp;gt;&lt;/code&gt;库中。&lt;br&gt;
+其使用方法可以参考此文章：&lt;a href="https://blog.csdn.net/qq_21808961/article/details/78234780"&gt;C/C++ 输出间隔控制&lt;/a&gt;&lt;/p&gt;
 </description><author>815918091@qq.com (卡咪)</author><guid isPermaLink="true">/archives/grammar-parser-implementation/</guid><pubDate>Fri, 27 Nov 2020 20:34:00 +0806</pubDate></item></channel></rss>
