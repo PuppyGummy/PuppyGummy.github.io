@@ -80,10 +80,8 @@ excerpt: a simple grammar parser implemented by c++
 14 | r5	| r5 | r5 | r5 | | r5 | | r5 | | |
 15 | r7	| r7 | r7 | r7 | | r7 | | r7 | | |
 
-最后实现算法4.3，其伪代码如下： 
-```nohighlight
-> 
-> nohighlight
+最后实现算法4.3，其伪代码如下：  
+
 > 输入：文法G的一张分析表和一个输入符号串ω  
 > 输出：若ω∈L(G)，得到ω的自底向上的分析，否则报错  
 > 方法：开始时，初始状态S0在栈顶，ω$在输入缓冲器中  
@@ -103,9 +101,6 @@ excerpt: a simple grammar parser implemented by c++
 >    else if action[S，a]=accept  then  return  
 >    else  error()  
 > end.  
-> 
-> 
-```
 
 ## 实现
 
