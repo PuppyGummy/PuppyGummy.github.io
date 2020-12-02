@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/60319ff42ebd8d360a041a73851b3846.json"
+            api: "https://cdn.jsdelivr.net/gh/PuppyGummy/PuppyGummy.github.io@gh-pages/32c9cfddb00c9dc213df9b548a0d4e2e.json"
         }
     </script>
     <script>
@@ -130,9 +130,9 @@
         </p>
         <article class="yue"><p>本文的前提：<br>
 编写语法分析程序，实现对算术表达式的语法分析。要求所分析算数表达式由如下的文法产生</p>
-<blockquote><p>E-&gt;E+T | E-T | T</p>
-<p>T-&gt;T*F | T/F | F</p>
-<p>F-&gt; (E) | num</p>
+<blockquote><p>E-&gt;E+T | E-T | T<br>
+T-&gt;T*F | T/F | F<br>
+F-&gt; (E) | num</p>
 </blockquote>
 <p>实验要求：在对输入的算术表达式进行分析的过程中，依次输出所采用的产生式<br>
 编写算法分析程序实现自底向上的分析，要求如下<br>
@@ -403,25 +403,25 @@ follow(T) = follow(F) = { *, /, +, -, ), $ }</p>
 </table>
 <p>最后实现算法4.3，其伪代码如下：</p>
 
-<pre><code>输入：文法G的一张分析表和一个输入符号串ω  
-输出：若ω∈L(G)，得到ω的自底向上的分析，否则报错  
-方法：开始时，初始状态S0在栈顶，ω$在输入缓冲器中  
-
-置ip指向ω$的第一个符号；  
-   repeat  forever   begin  
-   令S是栈顶状态，a是ip所指向的符号；  
-   if action[S，a]=shift S’  then  begin  
-      把a和S’依次入栈；  
-      推进ip，使它指向下一个输入符号  
-      end  
-   else if action[S，a]=reduce by A→β  then  begin  
-      从栈顶弹出2*|β|个符号；      
-      令S’是现在的栈顶状态，把A和goto[S’，A]入栈；  
-      输出产生式A→β  
-      end  
-   else if action[S，a]=accept  then  return  
-   else  error()  
-end.</code></pre>
+<pre><code>&gt; 输入：文法G的一张分析表和一个输入符号串ω  
+&gt; 输出：若ω∈L(G)，得到ω的自底向上的分析，否则报错  
+&gt; 方法：开始时，初始状态S0在栈顶，ω$在输入缓冲器中  
+&gt; 
+&gt; 置ip指向ω$的第一个符号；  
+&gt;    repeat  forever   begin  
+&gt;    令S是栈顶状态，a是ip所指向的符号；  
+&gt;    if action[S，a]=shift S’  then  begin  
+&gt;       把a和S’依次入栈；  
+&gt;       推进ip，使它指向下一个输入符号  
+&gt;       end  
+&gt;    else if action[S，a]=reduce by A→β  then  begin  
+&gt;       从栈顶弹出2*|β|个符号；      
+&gt;       令S’是现在的栈顶状态，把A和goto[S’，A]入栈；  
+&gt;       输出产生式A→β  
+&gt;       end  
+&gt;    else if action[S，a]=accept  then  return  
+&gt;    else  error()  
+&gt; end.</code></pre>
 <h2>实现</h2>
 <p>在具体的实现中，我定义了两个结构体，分别用来表示产生式和action表。</p>
 <div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">generator</span><span class="p">{</span>
