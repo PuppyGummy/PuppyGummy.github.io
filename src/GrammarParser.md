@@ -16,10 +16,8 @@ excerpt: a simple grammar parser implemented by c++
 本文的前提：  
 编写语法分析程序，实现对算术表达式的语法分析。要求所分析算数表达式由如下的文法产生
 
-> E->E+T | E-T | T
->
-> T->T\*F | T/F | F
->
+> E->E+T | E-T | T  
+> T->T\*F | T/F | F  
 > F-> (E) | num
 
 实验要求：在对输入的算术表达式进行分析的过程中，依次输出所采用的产生式  
@@ -72,25 +70,25 @@ excerpt: a simple grammar parser implemented by c++
 
 最后实现算法4.3，其伪代码如下：  
 ```nohighlight
-输入：文法G的一张分析表和一个输入符号串ω  
-输出：若ω∈L(G)，得到ω的自底向上的分析，否则报错  
-方法：开始时，初始状态S0在栈顶，ω$在输入缓冲器中  
-
-置ip指向ω$的第一个符号；  
-   repeat  forever   begin  
-   令S是栈顶状态，a是ip所指向的符号；  
-   if action[S，a]=shift S’  then  begin  
-      把a和S’依次入栈；  
-      推进ip，使它指向下一个输入符号  
-      end  
-   else if action[S，a]=reduce by A→β  then  begin  
-      从栈顶弹出2*|β|个符号；      
-      令S’是现在的栈顶状态，把A和goto[S’，A]入栈；  
-      输出产生式A→β  
-      end  
-   else if action[S，a]=accept  then  return  
-   else  error()  
-end.  
+> 输入：文法G的一张分析表和一个输入符号串ω  
+> 输出：若ω∈L(G)，得到ω的自底向上的分析，否则报错  
+> 方法：开始时，初始状态S0在栈顶，ω$在输入缓冲器中  
+> 
+> 置ip指向ω$的第一个符号；  
+>    repeat  forever   begin  
+>    令S是栈顶状态，a是ip所指向的符号；  
+>    if action[S，a]=shift S’  then  begin  
+>       把a和S’依次入栈；  
+>       推进ip，使它指向下一个输入符号  
+>       end  
+>    else if action[S，a]=reduce by A→β  then  begin  
+>       从栈顶弹出2*|β|个符号；      
+>       令S’是现在的栈顶状态，把A和goto[S’，A]入栈；  
+>       输出产生式A→β  
+>       end  
+>    else if action[S，a]=accept  then  return  
+>    else  error()  
+> end.  
 ```
 
 ## 实现
