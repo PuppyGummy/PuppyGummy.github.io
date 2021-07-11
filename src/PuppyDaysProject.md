@@ -16,7 +16,7 @@ excerpt: A simple game about all the cute puppies
 
 ## 故事背景 ##
 
- - 列表项
+ - 时间：现代
  - 地点：某个临近乡野的小镇
 
 主角是一只名叫坨儿的母黑柴，刚搬进主角小镇，将在这里展开新的生活。她将会遇到个性鲜明，风格迥异的各种小狗朋友，聪明可爱的边牧和伯恩山，神经病吉娃娃，毁天灭地比格犬，还有地狱守门人刻耳柏洛斯……？
@@ -26,8 +26,8 @@ excerpt: A simple game about all the cute puppies
 ## 游戏风格 ##
 
 游戏美术暂定为绘本风，画面风格是与《林中之夜》类似的横版风格
-![图片](https://hive.indienova.com/farm/blog/2018/06/10260-1529082126.jpg_webp)
-![图片](https://hive.indienova.com/farm/blog/2018/06/10260-1529082110.jpg_webp)
+![](https://hive.indienova.com/farm/blog/2018/06/10260-1529082126.jpg_webp)
+![](https://hive.indienova.com/farm/blog/2018/06/10260-1529082110.jpg_webp)
 
 音乐风格以简洁为佳，整体轻松欢快
 
@@ -36,6 +36,8 @@ excerpt: A simple game about all the cute puppies
 ## 角色设定 ##
 
 目前主角的设定：
+![](./images/坨宝设定图.jpg)
+![](./images/坨宝.jpg)
 
 
 ## 成员分工 ##
